@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Al Manal Dental Center — dentistry as art, smiles as identity.">
+  <title>Al Manal Dental Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#home" aria-label="Al Manal home"><img src="assets/logo.png" alt="Al Manal"></a>
+    <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false"><span></span><span></span></button>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="active" href="#home">Home</a><a href="about.html">About</a><a href="services.html">Services</a>
+      <a href="doctors.html">Our Doctors</a><a href="contact.html">More <span>⌄</span></a>
+    </nav>
+    <a class="button button-primary header-cta" href="#contact">Contact</a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <span class="eyebrow">Excellence in Dental Care</span>
+        <h1>The Artistry Of Dentistry</h1>
+        <p>Dentistry as Art. Smiles as Identity. Every smile is personal, it reflects character, confidence, and identity.</p>
+        <div class="actions"><a class="button button-primary" href="#contact">Contact Us</a><a class="button button-light" href="#services">View Services</a></div>
+        <a class="scroll-cue" href="#about" aria-label="Scroll to about">↓</a>
+      </div>
+      <div class="hero-visual"><img src="assets/hero-clinic.png" alt="Al Manal dental clinic"><img class="tooth" src="assets/tooth.png" alt=""></div>
+    </section>
+
+    <section class="section about" id="about">
+      <div class="about-visual"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><img src="assets/about-doctor.png" alt="Al Manal dental professional"></div>
+      <div class="about-content">
+        <span class="eyebrow">Who We Are</span><h2>About Us</h2>
+        <p>Al Manal Dental Center was created around a simple belief: every smile is personal. It reflects character, confidence, and identity. We do not approach dentistry as a standard routine. We approach it with care, attentiveness, and refined clinical judgement, shaping every treatment around the individual needs of each patient.</p>
+        <div class="values-grid" id="values"></div>
+      </div>
+    </section>
+
+    <section class="section concept" id="concept">
+      <div class="section-heading"><div><span class="eyebrow">Our Concept</span><h2>Where science<br><em>becomes art</em> and care<br>becomes creation.</h2></div><p>We believe that every smile is a form of expression, a reflection of personality, emotion, and inner confidence. At Al Manal, we do not produce standard results. We compose, interpret, and reveal smiles that feel authentic, natural, and deeply human.</p></div>
+      <div class="concept-stage">
+        <div class="concept-notes"><article><b>Mastery</b><span>Attentiveness</span></article><article><b>Connection</b><span>Real Relationships</span></article></div>
+        <div class="concept-image"><img src="assets/concept.png" alt="Art inspired dental care"></div>
+        <div class="concept-notes right"><article><b>Care</b><span>Empathy Before Efficiency</span></article><article><b>Creativity</b><span>Designing, Not Copying</span></article></div>
+      </div>
+    </section>
+
+    <section class="section treatments" id="services">
+      <div class="center-heading"><span class="eyebrow">Our Services</span><h2>Our Treatments</h2><p>A full spectrum of refined dental services, each delivered with precision, artistry, and care.</p></div>
+      <div class="treatment-grid" id="treatment-grid"></div>
+    </section>
+
+    <section class="section team" id="team">
+      <div class="center-heading"><span class="eyebrow">Our Team</span><h2>Meet Our Artists</h2></div>
+      <div class="team-grid" id="team-grid"></div>
+    </section>
+
+    <section class="section experience">
+      <div class="experience-image"><img src="assets/experience.png" alt="A radiant smile after treatment at Al Manal"></div>
+      <div class="experience-copy"><span class="eyebrow">Patient Experience</span><h2>A Life-Changing<br><em>Experience</em></h2><p>We understand that visiting a dental clinic can feel overwhelming. That is why we have shaped the Al Manal experience around reassurance, clarity, and human connection. From your first consultation to the completion of treatment, we want you to feel informed, respected, and supported.</p><div class="experience-list"><article><i>✓</i><div><b>Calm & Attentive</b><span>Our approach is calm and attentive, we listen and explain clearly.</span></div></article><article><i>✓</i><div><b>Personalised Care Plans</b><span>Care plans that reflect your needs, priorities, and comfort.</span></div></article><article><i>✓</i><div><b>Lasting Oral Health</b><span>Quality care begins with genuine understanding and communication.</span></div></article></div></div>
+    </section>
+
+    <section class="appointment" id="contact">
+      <div class="appointment-intro"><span class="eyebrow dark">Book a Visit</span><h2>Book Your<br>Appointment</h2><p>Experience exceptional dental care with our expert team. Schedule your visit today and take the first step toward a healthier, brighter smile.</p><div class="stats"><span><b>17+</b> Years Experience</span><span><b>5,000+</b> Smiles</span><span><b>100%</b> Certified Specialists</span></div></div>
+      <form class="appointment-form"><div class="field-row"><label>Full Name *<input required placeholder="Your full name"></label><label>Phone *<input required type="tel" placeholder="+971 ..."></label></div><label>Email *<input required type="email" placeholder="you@email.com"></label><label>Services - Doctors *<select required><option value="">Select a treatment</option><option>Smile Design</option><option>Veneers</option><option>Root Canal Treatment</option><option>Dental Crowns</option><option>Dental Implants</option><option>Orthodontics</option></select></label><div class="field-row"><label>Preferred Date *<input required type="date"></label><label>Preferred Time<input type="time"></label></div><label>Notes *<textarea required placeholder="Enter Notes"></textarea></label><button class="button button-gold" type="submit">Book an appointment</button><small>By booking you agree to our terms. We respect your privacy.</small></form>
+    </section>
+
+    <section class="section contact-section">
+      <div class="contact-copy"><span class="eyebrow">Contact</span><h2>Get In Touch</h2><p>Visit us at our Abu Dhabi clinic, or reach out, our team is always delighted to help you begin your journey toward a more beautiful smile.</p><div class="contact-cards"><article><i>⌖</i><div><span>Address</span><b>56 Al Murahibeen St, Khalifa City, Sector 32, Abu Dhabi</b></div></article><article><i>☎</i><div><span>Phone</span><b>+971 2 556 9213</b></div></article><article><i>◷</i><div><span>Hours</span><b>Mon – Sun · 10:00 AM – 10:00 PM</b></div></article></div></div>
+      <div class="map-card"><iframe title="Al Manal location" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=54.65%2C24.38%2C54.75%2C24.48&amp;layer=mapnik"></iframe></div>
+    </section>
+  </main>
+
+  <footer><div class="footer-main"><div class="footer-brand"><img src="assets/logo.svg" alt="Al Manal"><p>Dentistry as Art. Smiles as Identity. Excellence in dental care with artistic sensitivity and genuine empathy.</p><div class="socials"><a href="#">f</a><a href="#">◎</a><a href="#">in</a><a href="#">◉</a></div></div><div><h3>Navigation</h3><div class="footer-links"><a href="#home">Home</a><a href="#about">About Us</a><a href="#concept">Concept</a><a href="#services">Treatments</a><a href="#team">Our Artists</a><a href="#contact">Contact Us</a></div></div><div><h3>Subscribe</h3><p>Receive smile-care tips and clinic news, thoughtfully curated.</p><form class="subscribe"><input type="email" placeholder="Enter Your Email" aria-label="Email"><button aria-label="Subscribe">→</button></form></div></div><div class="footer-bottom"><span>MOHAP APPROVAL LICENSE: RE6YF8UV-101224</span><span>©2026 Al Manal. All Rights Reserved.</span></div></footer>
+  <script src="script.js?v=3"></script>
+</body>
+</html>

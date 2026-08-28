@@ -1,0 +1,92 @@
+const values = [
+  ['✦','Personalized Care','We take time to understand each patient, because no two smiles are the same.'],
+  ['◌','Artistic Sensitivity','We combine clinical precision with aesthetic awareness for natural results.'],
+  ['⌁','Calm Environment','Thoughtfully designed to feel calm, welcoming, and reassuring.'],
+  ['◇','Modern Technology','Precision instruments and digital workflows for refined results.'],
+  ['✧','Experienced Professionals','Extensive experience across general, cosmetic, and restorative dentistry.'],
+  ['✓','Clinical Excellence','Combining clinical excellence with artistic sensitivity and genuine empathy.']
+];
+const valuesGrid = document.querySelector('#values');
+if (valuesGrid) valuesGrid.innerHTML = values.map(v => `<article><i>${v[0]}</i><h3>${v[1]}</h3><p>${v[2]}</p></article>`).join('');
+
+const treatments = [
+  ['service-smile.png','Smile Design','A digital design process that plans your ideal smile based on your facial features.'],
+  ['service-veneers.png','Veneers','Ultra-thin cosmetic veneers designed to perfect colour, shape, and symmetry.'],
+  ['service-root.png','Root Canal Treatment','Advanced treatment that removes infection to preserve the natural tooth.'],
+  ['service-crowns.png','Dental Crowns','Durable, aesthetic restorations that strengthen damaged or missing teeth.'],
+  ['service-implants.png','Dental Implants','State-of-the-art implant solutions with exceptional stability.'],
+  ['service-ortho.png','Orthodontics','Modern solutions for all ages, with comfortable and precise results.']
+];
+const treatmentGrid = document.querySelector('#treatment-grid');
+if (treatmentGrid) treatmentGrid.innerHTML = treatments.map(t => `<article><img src="assets/${t[0]}" alt="${t[1]}"><div><h3>${t[1]}</h3><p>${t[2]}</p><a href="#contact">Learn More <span>↗</span></a></div></article>`).join('');
+
+const doctors = [['doctor-1.png','Dr. Talaat Al-Qadi'],['doctor-2.png','Dr. Ghaeth Helal'],['doctor-3.png','Dr. May Abdelraouf'],['doctor-4.png','Dr. Manal Dandan']];
+const teamGrid = document.querySelector('#team-grid');
+if (teamGrid) teamGrid.innerHTML = doctors.map(d => `<article><img src="assets/${d[0]}" alt="${d[1]}"><h3>${d[1]}</h3><p>G.P. Dentist</p></article>`).join('');
+
+// Shared accessible "More" navigation dropdown.
+document.querySelectorAll('.nav').forEach(nav => {
+  const moreLink = [...nav.children].find(item => item.textContent.trim().startsWith('More'));
+  if (!moreLink) return;
+
+  const dropdown = document.createElement('div');
+  dropdown.className = `more-dropdown${moreLink.classList.contains('active') ? ' current' : ''}`;
+  dropdown.innerHTML = `
+    <button class="more-trigger" type="button" aria-expanded="false" aria-haspopup="true">
+      <span>More</span><span class="more-chevron" aria-hidden="true">⌄</span>
+    </button>
+    <div class="more-menu" role="menu">
+      <a href="patient-guide.html" role="menuitem">Patient Guide</a>
+      <a href="careers.html" role="menuitem">Careers</a>
+      <a href="faqs.html" role="menuitem">FAQs</a>
+      <a href="privacy-policy.html" role="menuitem">Privacy Policy</a>
+    </div>`;
+  moreLink.replaceWith(dropdown);
+
+  const trigger = dropdown.querySelector('.more-trigger');
+  const items = [...dropdown.querySelectorAll('.more-menu a')];
+  const setOpen = open => {
+    dropdown.classList.toggle('open', open);
+    trigger.setAttribute('aria-expanded', String(open));
+    if (open) items[0].focus();
+  };
+
+  trigger.addEventListener('click', event => {
+    event.stopPropagation();
+    setOpen(!dropdown.classList.contains('open'));
+  });
+  trigger.addEventListener('keydown', event => {
+    if (event.key === 'ArrowDown') { event.preventDefault(); setOpen(true); }
+  });
+  dropdown.addEventListener('keydown', event => {
+    const index = items.indexOf(document.activeElement);
+    if (event.key === 'Escape') { setOpen(false); trigger.focus(); }
+    if (event.key === 'ArrowDown') { event.preventDefault(); items[(index + 1) % items.length].focus(); }
+    if (event.key === 'ArrowUp') { event.preventDefault(); items[(index - 1 + items.length) % items.length].focus(); }
+  });
+  items.forEach(item => item.addEventListener('click', () => {
+    setOpen(false);
+    document.body.classList.remove('menu-open');
+  }));
+});
+
+document.addEventListener('click', event => {
+  document.querySelectorAll('.more-dropdown.open').forEach(dropdown => {
+    if (!dropdown.contains(event.target)) {
+      dropdown.classList.remove('open');
+      dropdown.querySelector('.more-trigger').setAttribute('aria-expanded', 'false');
+    }
+  });
+});
+
+const toggle = document.querySelector('.menu-toggle');
+if (toggle) toggle.addEventListener('click', () => { const open = document.body.classList.toggle('menu-open'); toggle.setAttribute('aria-expanded', open); });
+document.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('menu-open')));
+
+document.querySelectorAll('form').forEach(form => form.addEventListener('submit', e => { e.preventDefault(); const button=form.querySelector('button[type="submit"]'); if(button){button.textContent='Request received ✓'; button.disabled=true;} }));
+
+document.querySelectorAll('.faq-question').forEach(button => button.addEventListener('click', () => {
+  const item = button.closest('.faq-item');
+  const open = item.classList.toggle('open');
+  button.setAttribute('aria-expanded', String(open));
+}));
