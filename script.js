@@ -33,7 +33,7 @@ document.querySelectorAll('.nav').forEach(nav => {
   dropdown.className = `more-dropdown${moreLink.classList.contains('active') ? ' current' : ''}`;
   dropdown.innerHTML = `
     <button class="more-trigger" type="button" aria-expanded="false" aria-haspopup="true">
-      <span>More</span><span class="more-chevron" aria-hidden="true">⌄</span>
+      <span>More</span><svg class="more-chevron" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><path d="M5 7.5 10 12.5 15 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
     </button>
     <div class="more-menu" role="menu">
       <a href="patient-guide.html" role="menuitem">Patient Guide</a>
@@ -80,8 +80,24 @@ document.addEventListener('click', event => {
 });
 
 const toggle = document.querySelector('.menu-toggle');
-if (toggle) toggle.addEventListener('click', () => { const open = document.body.classList.toggle('menu-open'); toggle.setAttribute('aria-expanded', open); });
-document.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', () => document.body.classList.remove('menu-open')));
+const setMenuOpen = open => {
+  document.body.classList.toggle('menu-open', open);
+  toggle?.setAttribute('aria-expanded', String(open));
+};
+if (toggle) toggle.addEventListener('click', event => {
+  event.stopPropagation();
+  setMenuOpen(!document.body.classList.contains('menu-open'));
+});
+document.querySelectorAll('.nav a').forEach(a => a.addEventListener('click', () => setMenuOpen(false)));
+document.addEventListener('click', event => {
+  if (document.body.classList.contains('menu-open') && !event.target.closest('.site-header')) setMenuOpen(false);
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') setMenuOpen(false);
+});
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 1080) setMenuOpen(false);
+});
 
 document.querySelectorAll('form').forEach(form => form.addEventListener('submit', e => { e.preventDefault(); const button=form.querySelector('button[type="submit"]'); if(button){button.textContent='Request received ✓'; button.disabled=true;} }));
 
@@ -90,3 +106,46 @@ document.querySelectorAll('.faq-question').forEach(button => button.addEventList
   const open = item.classList.toggle('open');
   button.setAttribute('aria-expanded', String(open));
 }));
+
+// Shared visual polish and motion, with accessibility-safe fallbacks.
+const header = document.querySelector('.site-header');
+const updateHeader = () => header?.classList.toggle('scrolled', window.scrollY > 12);
+updateHeader();
+window.addEventListener('scroll', updateHeader, { passive: true });
+
+const currentPage = location.pathname.split('/').pop() || 'index.html';
+document.querySelectorAll('.nav a').forEach(link => {
+  const href = link.getAttribute('href')?.split('#')[0];
+  if (href && href === currentPage) link.classList.add('active');
+});
+
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+const heroVideo = document.querySelector('.hero-video');
+const syncMotionPreference = event => {
+  if (!heroVideo) return;
+  if (event.matches) heroVideo.pause();
+  else heroVideo.play().catch(() => {});
+};
+syncMotionPreference(reduceMotion);
+reduceMotion.addEventListener?.('change', syncMotionPreference);
+
+if (!reduceMotion.matches && 'IntersectionObserver' in window) {
+  const revealTargets = document.querySelectorAll([
+    '.section > *', '.resource-section > *', '.resource-band > *',
+    '.insurance-section > *', '.gallery-section > *', '.apply-section > *',
+    '.policy-content > *', '.page-hero > div', '.resource-hero > *'
+  ].join(','));
+  document.body.classList.add('motion-ready');
+  revealTargets.forEach((element, index) => {
+    element.classList.add('reveal-target');
+    element.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 70}ms`);
+  });
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -35px' });
+  revealTargets.forEach(element => revealObserver.observe(element));
+}
