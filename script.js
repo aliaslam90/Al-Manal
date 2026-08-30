@@ -1,3 +1,5 @@
+const figmaIcon = (name, size = 22) => `<img class="figma-icon" src="assets/icons/${name}.svg" width="${size}" height="${size}" alt="" aria-hidden="true">`;
+const valueIcons = ['personal-care', 'artistic', 'calm', 'technology', 'professionals', 'excellence'];
 const values = [
   ['✦','Personalized Care','We take time to understand each patient, because no two smiles are the same.'],
   ['◌','Artistic Sensitivity','We combine clinical precision with aesthetic awareness for natural results.'],
@@ -7,7 +9,7 @@ const values = [
   ['✓','Clinical Excellence','Combining clinical excellence with artistic sensitivity and genuine empathy.']
 ];
 const valuesGrid = document.querySelector('#values');
-if (valuesGrid) valuesGrid.innerHTML = values.map(v => `<article><i>${v[0]}</i><h3>${v[1]}</h3><p>${v[2]}</p></article>`).join('');
+if (valuesGrid) valuesGrid.innerHTML = values.map((v, index) => `<article><i>${figmaIcon(valueIcons[index])}</i><h3>${v[1]}</h3><p>${v[2]}</p></article>`).join('');
 
 const treatments = [
   ['service-smile.png','Smile Design','A digital design process that plans your ideal smile based on your facial features.'],
@@ -18,7 +20,7 @@ const treatments = [
   ['service-ortho.png','Orthodontics','Modern solutions for all ages, with comfortable and precise results.']
 ];
 const treatmentGrid = document.querySelector('#treatment-grid');
-if (treatmentGrid) treatmentGrid.innerHTML = treatments.map(t => `<article><img src="assets/${t[0]}" alt="${t[1]}"><div><h3>${t[1]}</h3><p>${t[2]}</p><a href="#contact">Learn More <span>↗</span></a></div></article>`).join('');
+if (treatmentGrid) treatmentGrid.innerHTML = treatments.map(t => `<article><img src="assets/${t[0]}" alt="${t[1]}"><div><h3>${t[1]}</h3><p>${t[2]}</p><a href="#contact">Learn More ${figmaIcon('arrow', 17)}</a></div></article>`).join('');
 
 const doctors = [['doctor-1.png','Dr. Talaat Al-Qadi'],['doctor-2.png','Dr. Ghaeth Helal'],['doctor-3.png','Dr. May Abdelraouf'],['doctor-4.png','Dr. Manal Dandan']];
 const teamGrid = document.querySelector('#team-grid');
@@ -33,7 +35,7 @@ document.querySelectorAll('.nav').forEach(nav => {
   dropdown.className = `more-dropdown${moreLink.classList.contains('active') ? ' current' : ''}`;
   dropdown.innerHTML = `
     <button class="more-trigger" type="button" aria-expanded="false" aria-haspopup="true">
-      <span>More</span><svg class="more-chevron" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true" focusable="false"><path d="M5 7.5 10 12.5 15 7.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span>More</span><img class="more-chevron" src="assets/icons/chevron.svg" width="14" height="14" alt="" aria-hidden="true">
     </button>
     <div class="more-menu" role="menu">
       <a href="patient-guide.html" role="menuitem">Patient Guide</a>
@@ -109,6 +111,38 @@ document.querySelectorAll('.faq-question').forEach(button => button.addEventList
 
 // Shared visual polish and motion, with accessibility-safe fallbacks.
 const header = document.querySelector('.site-header');
+document.querySelectorAll('.resource-footer p').forEach(paragraph => {
+  const name = {'☎':'phone','✉':'email','◷':'clock'}[paragraph.textContent.trim()[0]];
+  if (!name) return;
+  const label = document.createElement('span');
+  label.textContent = paragraph.textContent.trim().slice(1).trim();
+  paragraph.innerHTML = figmaIcon(name, 20);
+  paragraph.append(label);
+  paragraph.classList.add('footer-contact-row');
+});
+document.querySelectorAll('.faq-question span').forEach(icon => {
+  icon.innerHTML = figmaIcon('chevron', 14);
+});
+// Exact exported Figma assets; fixed dimensions prevent intrinsic SVG scaling.
+document.querySelectorAll('.contact-cards i, .info-row i').forEach(icon => {
+  const name = {'⌖':'location','☎':'phone','◷':'clock','✉':'email'}[icon.textContent.trim()];
+  if (name) icon.innerHTML = figmaIcon(name, 20);
+});
+document.querySelectorAll('.metrics-grid i').forEach((icon, i) => {
+  icon.innerHTML = figmaIcon(['patients','experience','rating','availability'][i % 4]);
+});
+document.querySelectorAll('.why-grid i').forEach((icon, i) => {
+  icon.innerHTML = figmaIcon(['personal-care','professionals','artistic'][i % 3]);
+});
+document.querySelectorAll('.scroll-cue').forEach(icon => { icon.innerHTML = figmaIcon('arrow', 22); });
+document.querySelectorAll('.subscribe button').forEach(button => {
+  button.innerHTML = figmaIcon('send', 18);
+  button.setAttribute('aria-label', 'Subscribe');
+});
+document.querySelectorAll('.socials a').forEach((link, i) => {
+  link.innerHTML = figmaIcon(`social-${i + 1}`, 20);
+  link.setAttribute('aria-label', ['Instagram', 'Facebook', 'Twitter', 'LinkedIn'][i % 4]);
+});
 const updateHeader = () => header?.classList.toggle('scrolled', window.scrollY > 12);
 updateHeader();
 window.addEventListener('scroll', updateHeader, { passive: true });
@@ -128,6 +162,7 @@ const syncMotionPreference = event => {
 };
 syncMotionPreference(reduceMotion);
 reduceMotion.addEventListener?.('change', syncMotionPreference);
+
 
 if (!reduceMotion.matches && 'IntersectionObserver' in window) {
   const revealTargets = document.querySelectorAll([
