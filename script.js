@@ -9,7 +9,7 @@ const values = [
   ['✓','Clinical Excellence','Combining clinical excellence with artistic sensitivity and genuine empathy.']
 ];
 const valuesGrid = document.querySelector('#values');
-if (valuesGrid) valuesGrid.innerHTML = values.map((v, index) => `<article><i>${figmaIcon(valueIcons[index])}</i><h3>${v[1]}</h3><p>${v[2]}</p></article>`).join('');
+if (valuesGrid) valuesGrid.innerHTML = values.slice(0, Number(valuesGrid.dataset.count) || values.length).map((v, index) => `<article><i>${figmaIcon(valueIcons[index])}</i><h3>${v[1]}</h3><p>${v[2]}</p></article>`).join('');
 
 const treatments = [
   ['service-smile.png','Smile Design','A digital design process that plans your ideal smile based on your facial features.'],
@@ -20,6 +20,10 @@ const treatments = [
   ['service-ortho.png','Orthodontics','Modern solutions for all ages, with comfortable and precise results.']
 ];
 const treatmentGrid = document.querySelector('#treatment-grid');
+document.querySelectorAll('[data-treatment]').forEach(link => link.addEventListener('click', () => {
+  const select = document.querySelector('#appointment select');
+  if (select) select.value = link.dataset.treatment;
+}));
 if (treatmentGrid) treatmentGrid.innerHTML = treatments.map(t => `<article><img src="assets/${t[0]}" alt="${t[1]}"><div><h3>${t[1]}</h3><p>${t[2]}</p><a href="#contact">Learn More ${figmaIcon('arrow', 17)}</a></div></article>`).join('');
 
 const doctors = [['doctor-1.png','Dr. Talaat Al-Qadi'],['doctor-2.png','Dr. Ghaeth Helal'],['doctor-3.png','Dr. May Abdelraouf'],['doctor-4.png','Dr. Manal Dandan']];
@@ -85,6 +89,10 @@ const toggle = document.querySelector('.menu-toggle');
 const setMenuOpen = open => {
   document.body.classList.toggle('menu-open', open);
   toggle?.setAttribute('aria-expanded', String(open));
+  if (!open) document.querySelectorAll('.more-dropdown.open').forEach(dropdown => {
+    dropdown.classList.remove('open');
+    dropdown.querySelector('.more-trigger').setAttribute('aria-expanded', 'false');
+  });
 };
 if (toggle) toggle.addEventListener('click', event => {
   event.stopPropagation();
@@ -164,23 +172,40 @@ syncMotionPreference(reduceMotion);
 reduceMotion.addEventListener?.('change', syncMotionPreference);
 
 
-if (!reduceMotion.matches && 'IntersectionObserver' in window) {
+if (!reduceMotion.matches) {
+  document.body.classList.add('motion-ready');
+  const loadTargets = document.querySelectorAll('.site-header, .hero-video-bg, .hero-copy > *, .page-hero .eyebrow, .page-hero h1, .resource-hero > *');
+  loadTargets.forEach((element, index) => {
+    element.classList.add('load-target');
+    element.style.setProperty('--load-delay', `${Math.min(index, 6) * 90}ms`);
+  });
+  requestAnimationFrame(() => requestAnimationFrame(() => loadTargets.forEach(element => element.classList.add('load-visible'))));
+
   const revealTargets = document.querySelectorAll([
     '.section > *', '.resource-section > *', '.resource-band > *',
     '.insurance-section > *', '.gallery-section > *', '.apply-section > *',
-    '.policy-content > *', '.page-hero > div', '.resource-hero > *'
+    '.policy-content > *', '.page-hero > div',
+    '.values-grid article', '.home-concept-grid article', '.team-grid article',
+    '.experience-list article', '.services-cards article', '.services-support > *',
+    '.about-story > *', '.metrics-grid article', '.about-voice-values > *',
+    '.doctors-top > *', '.doctors-grid article', '.contact-dashboard > *',
+    '.contact-primary > *', '.contact-secondary > *', '.home-appointment > *',
+    '.footer-main > *', '.footer-bottom > *'
   ].join(','));
-  document.body.classList.add('motion-ready');
   revealTargets.forEach((element, index) => {
     element.classList.add('reveal-target');
     element.style.setProperty('--reveal-delay', `${Math.min(index % 4, 3) * 70}ms`);
   });
-  const revealObserver = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add('is-visible');
-      revealObserver.unobserve(entry.target);
-    });
-  }, { threshold: 0.12, rootMargin: '0px 0px -35px' });
-  revealTargets.forEach(element => revealObserver.observe(element));
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -35px' });
+    revealTargets.forEach(element => revealObserver.observe(element));
+  } else {
+    revealTargets.forEach(element => element.classList.add('is-visible'));
+  }
 }

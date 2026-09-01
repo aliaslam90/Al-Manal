@@ -1,0 +1,34 @@
+/* Figma Services 159:101; hero and appointment reuse existing components. */
+.services-view { --home-heading:#19093e; }
+.services-view .page-hero>div:after { background-size:100% 100%; }
+.services-view .services-page { width:100%; max-width:none; margin:0; padding:80px max(40px,calc((100% - 1360px)/2)); }
+.services-intro { margin:0 0 32px; text-align:center; color:#000; font-size:18px; font-weight:300; line-height:29.25px; }
+.services-cards { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+.services-cards article { min-width:0; border:1px solid #dee5ed; border-radius:28px; overflow:hidden; background:white; display:flex; flex-direction:column; transition:box-shadow .25s ease,transform .25s ease; }
+.services-cards .service-photo { position:relative; height:208px; flex:none; overflow:hidden; }
+.services-cards .service-photo>img { display:block; width:100%; height:100%; object-fit:cover; }
+.services-cards article:nth-child(5) .service-photo>img { position:absolute; height:209.3%; top:-54.65%; object-fit:fill; }
+.services-cards article>div:not(.service-photo) { padding:24px; display:flex; flex:1; flex-direction:column; gap:11.4px; }
+.services-cards h2 { font:700 24px/32px 'Cormorant Garamond',serif; color:#011632; margin:0; }
+.services-cards p { font-size:14px; line-height:22.75px; color:black; margin:0; flex:1; }
+.services-cards a { display:flex; align-items:center; align-self:flex-start; gap:8px; font-size:16px; line-height:24px; font-weight:500; color:var(--brand-primary); margin-top:8px; min-height:24px; }
+.services-cards a img { width:17px; height:17px; object-fit:contain; transition:transform .2s; }
+.services-support { display:grid; grid-template-columns:minmax(0,1fr) 400px; gap:24px; margin-top:24px; }
+.services-support article { border-radius:32px; display:flex; flex-direction:column; align-items:flex-start; gap:24px; min-width:0; }
+.services-emergency { background:var(--brand-primary); color:#fff; padding:40px; }
+.services-trust { background:#fbf8ef; border:1px solid #f3eacc; padding:32px 40px; color:#19093e; }
+.support-label { display:flex; gap:16px; align-items:center; }
+.support-label i { width:48px; height:48px; flex-shrink:0; background:white; border-radius:12px; display:grid; place-items:center; }
+.support-label span { font:600 14px/20px 'Cormorant Garamond',serif; text-transform:uppercase; letter-spacing:.7px; }
+.services-trust .support-label span { color:#7e7e81; }
+.services-support h2 { font-size:30px; line-height:36px; margin:0; color:inherit; }
+.services-emergency p { font-size:16px; line-height:26px; color:#ffffffe6; margin:0; }
+.services-emergency>a { margin-top:18px; background:white; color:var(--brand-primary); border-radius:12px; padding:14px 24px; font-size:16px; font-weight:700; line-height:24px; }
+.services-trust ul { margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:15.8px; }
+.services-trust li { display:flex; align-items:center; gap:12px; font-size:16px; line-height:24px; }
+.services-trust li:before { content:""; width:8px; height:8px; flex-shrink:0; background:var(--brand-accent); border-radius:50%; }
+@media(hover:hover) { .services-cards article:hover { transform:translateY(-4px); box-shadow:0 12px 28px #0e179214; } .services-cards a:hover img { transform:translateX(4px); } .services-emergency>a:hover { background:#f3eacc; } }
+@media(max-width:1080px) { .services-view .services-page { padding:64px 28px; } .services-cards { grid-template-columns:repeat(2,minmax(0,1fr)); } .services-support { grid-template-columns:1fr 340px; } .services-support article { padding:28px; } }
+@media(max-width:760px) { .services-support { grid-template-columns:1fr; } }
+@media(max-width:600px) { .services-view .services-page { padding:48px 20px; } .services-intro { font-size:16px; line-height:26px; } .services-cards { grid-template-columns:1fr; gap:20px; } .services-cards article { border-radius:24px; } .services-cards article>div:not(.service-photo) { padding:22px; } .services-cards a { min-height:44px; } .services-support article { border-radius:24px; padding:24px; } }
+@media(prefers-reduced-motion:reduce) { .services-cards article,.services-cards a img { transition:none; } }

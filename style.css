@@ -39,8 +39,12 @@
 .gallery-section img,.concept-image img,.experience-image img,.commitment-image>img,.visit-section figure>img{transition:transform .65s cubic-bezier(.2,.7,.2,1)}
 .gallery-section img:hover,.concept-image:hover img,.experience-image:hover img,.commitment-image:hover>img,.visit-section figure:hover>img{transform:scale(1.025)}
 .menu-toggle:focus-visible,.button:focus-visible,.scroll-cue:focus-visible,.category-section button:focus-visible{outline:3px solid rgba(210,180,70,.65);outline-offset:3px}
-.motion-ready .reveal-target{opacity:0;transform:translateY(26px);transition:opacity .7s ease var(--reveal-delay,0ms),transform .7s cubic-bezier(.2,.7,.2,1) var(--reveal-delay,0ms)}
-.motion-ready .reveal-target.is-visible{opacity:1;transform:none}
+.motion-ready .load-target{opacity:0;transform:translateY(18px);transition:opacity .75s ease var(--load-delay,0ms),transform .8s cubic-bezier(.16,1,.3,1) var(--load-delay,0ms)}
+.motion-ready .load-target.load-visible{opacity:1;transform:none}
+.motion-ready .reveal-target{opacity:0;filter:blur(4px);transform:translateY(34px) scale(.985);transition:opacity .8s ease var(--reveal-delay,0ms),filter .8s ease var(--reveal-delay,0ms),transform .9s cubic-bezier(.16,1,.3,1) var(--reveal-delay,0ms)}
+.motion-ready .reveal-target.is-visible{opacity:1;filter:none;transform:none}
+.values-grid article,.services-cards article,.doctors-grid article,.metrics-grid article,.about-voice-values article,.contact-request,.reach-card,.hours-card,.contact-social{transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s ease,border-color .3s ease}
+.values-grid article:hover,.services-cards article:hover,.doctors-grid article:hover,.metrics-grid article:hover,.about-voice-values article:hover,.contact-request:hover,.reach-card:hover,.hours-card:hover,.contact-social:hover{transform:translateY(-6px);border-color:rgba(14,23,146,.22);box-shadow:0 18px 42px rgba(14,23,146,.1)}
 @media(max-width:760px){
   .site-header{position:sticky}.nav{max-height:calc(100vh - 82px);overflow-y:auto;border-top:1px solid #eef0f6}
   .hero{min-height:730px;padding-top:38px}.hero-copy{align-self:start}.hero h1{margin:24px 0 18px}.hero-visual{height:350px;align-self:end}.hero-video{border-radius:16px}.video-badge{right:12px;bottom:12px}
@@ -51,7 +55,7 @@
   .team-grid{grid-template-columns:1fr}.team-grid img{height:390px}.resource-footer>div{grid-template-columns:1fr}.resource-hero h1{font-size:40px}.page-hero h1{font-size:44px}
 }
 @media(prefers-reduced-motion:reduce){
-  html{scroll-behavior:auto}.video-badge i{animation:none}.motion-ready .reveal-target{opacity:1;transform:none}.button,.scroll-cue,.socials a,.gallery-section img,.concept-image img,.experience-image img{transition:none}
+  html{scroll-behavior:auto}.video-badge i{animation:none}.motion-ready .load-target,.motion-ready .reveal-target{opacity:1;filter:none;transform:none;transition:none}.motion-ready .home-about-art.is-visible .home-about-portrait,.motion-ready .home-about-art.is-visible .home-orbit-outer,.motion-ready .home-about-art.is-visible .home-orbit-inner,.motion-ready .home-about-art.is-visible .home-tooth{animation:none}.button,.scroll-cue,.socials a,.gallery-section img,.concept-image img,.experience-image img{transition:none}
 }
 
 /* Unified Al Manal design tokens and navigation system */

@@ -1,0 +1,88 @@
+/* About reference: Figma 133:23. Shared appointment component in homepage.css. */
+.about-page { --home-heading:#19093e; }
+:is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero { width:100%; max-width:none; height:393px; padding:32px 6px 0; margin:0; border-radius:60px 60px 40px 40px; overflow:hidden; background:#fff; }
+:is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero>div { position:relative; isolation:isolate; width:100%; height:361px; padding:98px 20px 0; border-radius:60px 60px 0 0; background:linear-gradient(180deg,#e3e5ff 0%,#f3f4ff 66%,#fbfbff 100%); display:flex; flex-direction:column; align-items:center; justify-content:flex-start; }
+:is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero>div:after { content:""; display:block; position:absolute; z-index:-1; top:55px; right:48px; width:476px; height:664px; background:url('assets/about-watermark.png') center/contain no-repeat; opacity:.3; }
+:is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero .eyebrow { font-size:16px; line-height:24px; padding:6px 12px; background:white; box-shadow:0 0 0 3px white,0 4px 2px #8c96a940,0 8px 17px #8c96a91a; }
+:is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero h1 { font-size:70px; line-height:84px; letter-spacing:-.7px; color:#0e1792; margin:32px 0 0; }
+.about-page .about-story { width:100%; max-width:none; margin:0; padding:80px max(40px,calc((100% - 1360px)/2)) 20px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:80px; align-items:start; }
+.about-page .about-story-art { position:relative; height:522px; overflow:visible; }
+.about-page .about-story-art>img { width:100%; height:100%; object-fit:cover; border:1px solid #ebecff; border-radius:32px; box-shadow:10px 10px 40px #07006c12; }
+.about-commitment { position:absolute; bottom:-32px; right:35px; max-width:calc(100% - 32px); padding:20px; border:1px solid #dee5ed; border-radius:24px; background:#fffffff2; backdrop-filter:blur(4px); box-shadow:10px 10px 40px #07006c12; display:flex; align-items:center; gap:16px; color:#13195c; }
+.about-commitment h3 { font-size:18px; line-height:28px; font-weight:600; margin:0 0 4px; }
+.about-commitment p { font-size:14px; line-height:19.25px; font-weight:300; margin:0; }
+.commitment-count { padding:16px 20px; border-radius:16px; background:#0e1792; color:white; flex-shrink:0; }
+.commitment-count b { display:block; font-size:30px; line-height:36px; }
+.commitment-count span { display:block; font-size:12px; line-height:16px; font-weight:300; }
+.about-page .about-story-copy { padding-top:16px; min-width:0; }
+.about-page .about-story-copy .lead { font-size:18px; line-height:29.25px; margin:0 0 32px; color:black; }
+.about-page .values-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+.about-page .values-grid article { padding:20px; min-height:183.5px; border:1px solid #dee5ed; border-radius:16px; box-shadow:none; }
+.about-page .values-grid i { width:44px; height:44px; border-radius:12px; background:#0e17921a; }
+.about-page .values-grid h3 { font-size:20px; line-height:28px; font-weight:600; color:#13195c; margin:12px 0 10px; }
+.about-page .values-grid p { margin:0; color:black; font-size:14px; line-height:22.75px; }
+.about-metrics { width:100%; max-width:none; padding:0 max(40px,calc((100% - 1360px)/2)) 32px; margin:0; }
+.about-page .metrics-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; }
+.about-page .metrics-grid article { min-height:234px; padding:40px; border:1px solid #ebecff; border-radius:32px; box-shadow:0 8px 17px #dee5ed; background:#fff; }
+.metric-label { display:flex; gap:16px; align-items:center; margin-bottom:24px; }
+.about-page .metric-label i { width:48px; height:48px; border-radius:12px; background:#f3f4f7; margin:0; }
+.about-page .metric-label span { font-size:16px; line-height:20px; font-weight:700; letter-spacing:.7px; text-transform:uppercase; color:black; }
+.about-page .metrics-grid b { display:block; font:700 48px/48px Inter,sans-serif; color:#0e1792; margin:0 0 8px; white-space:nowrap; }
+.about-page .metrics-grid small { font-size:16px; line-height:24px; color:black; }
+.about-page .metrics-grid .availability-number { letter-spacing:-1.5px; }
+.about-page .availability-number span { font-size:20px; letter-spacing:0; }
+.about-page .metrics-grid span { margin-top:0; }
+.about-page .metrics-grid .availability-number span { color:#0e1792; }
+.about-commitment { z-index:3; }
+:is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero>div:after { z-index:0; background-image:url('assets/home-watermark.png'); filter:brightness(0) invert(1); }
+:is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero .eyebrow,:is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero h1 { position:relative; z-index:1; }
+.about-voice-values { width:100%; max-width:none; padding:64px max(40px,calc((100% - 1360px)/2)); margin:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.about-voice,.about-core { padding:40px; border-radius:32px; border:1px solid #ebecff; min-width:0; }
+.about-voice { background:#fbf8ef; border-color:#f3eacc; }
+.about-core { box-shadow:0 8px 17px #dee5ed; }
+.about-voice-values h2 { margin:0 0 24px; font:600 16px/20px Inter,sans-serif; text-transform:uppercase; letter-spacing:.7px; color:black; display:flex; align-items:center; gap:16px; }
+.about-voice-values i { display:grid; place-items:center; width:48px; height:48px; flex-shrink:0; border-radius:12px; background:white; }
+.about-voice blockquote { font:700 30px/36px 'Cormorant Garamond',serif; color:black; margin:0 0 24px; }
+.patient-attribution { display:flex; align-items:center; gap:16px; }
+.patient-avatar { width:48px; height:48px; border-radius:50%; background:white; }
+.patient-attribution b { display:block; color:#19093e; font:700 16px/24px 'Cormorant Garamond',serif; }
+.patient-attribution div>span { font-size:14px; line-height:20px; }
+.about-core-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.about-core-grid>div { min-height:208px; background:#f9fafb; border-radius:16px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; }
+.about-core-grid i { border-radius:50%; box-shadow:0 1px 1px #0000000d; }
+.about-core-grid h3 { font-size:20px; line-height:24px; color:black; margin:0; }
+@media(max-width:1250px) { .about-page .about-story { gap:40px; } .about-page .metrics-grid article { padding:24px; } .about-page .metrics-grid b { font-size:40px; } .about-voice,.about-core { padding:28px; } }
+@media(max-width:1080px) {
+ .about-page .about-story { grid-template-columns:1fr; padding:64px 28px 40px; gap:64px; }
+ .about-page .about-story-art { max-width:640px; width:100%; margin:auto; }
+ .about-page .about-story-copy { padding:0; }
+ .about-page .metrics-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .about-metrics { padding:0 28px 24px; }
+ .about-voice-values { grid-template-columns:1fr; padding:40px 28px 64px; }
+ :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero { width:100%; }
+}
+@media(max-width:600px) {
+ :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero { width:100%; height:290px; padding-top:18px; border-radius:32px; }
+ :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero>div { height:272px; padding:64px 16px 0; border-radius:32px 32px 0 0; }
+ :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero>div:after { right:-130px; width:340px; height:470px; top:40px; }
+ :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero h1 { font-size:52px; line-height:62px; margin-top:24px; }
+ .about-page .about-story { padding:48px 20px 32px; gap:48px; }
+ .about-page .about-story-art { height:360px; margin-bottom:40px; }
+ .about-page .about-story-art>img { border-radius:24px; }
+ .about-commitment { right:12px; bottom:-56px; padding:14px; gap:12px; max-width:calc(100% - 24px); }
+ .about-commitment p { font-size:12px; line-height:17px; }
+ .about-commitment h3 { font-size:17px; line-height:22px; }
+ .commitment-count { padding:12px; }
+ .commitment-count b { font-size:24px; line-height:30px; }
+ .commitment-count span { font-size:10px; }
+ .about-page .about-story-copy .lead { font-size:16px; line-height:26px; }
+ .about-page .values-grid,.about-page .metrics-grid { grid-template-columns:1fr; }
+ .about-page .values-grid article { min-height:0; }
+ .about-metrics { padding:0 20px 20px; }
+ .about-page .metrics-grid article { min-height:220px; padding:28px; }
+ .about-voice-values { padding:32px 20px 48px; }
+ .about-voice,.about-core { padding:24px; border-radius:24px; }
+ .about-voice blockquote { font-size:28px; line-height:34px; }
+ .about-core-grid { grid-template-columns:1fr; gap:12px; }
+ .about-core-grid>div { min-height:130px; }
+}
