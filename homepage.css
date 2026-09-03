@@ -4,7 +4,7 @@
 .homepage .section { max-width:1440px; padding:80px 40px; }
 .homepage .eyebrow { padding:6px 16px; font-size:14px; line-height:20px; font-weight:500; }
 .homepage .site-header { background:#fff; height:102px; }
-.homepage .site-header .logo img { filter:brightness(0) saturate(100%) invert(12%) sepia(82%) saturate(4991%) hue-rotate(240deg) brightness(76%) contrast(115%); }
+.homepage .site-header .logo img { filter:none; }
 .homepage .site-header .header-cta { background:var(--brand-accent)!important; min-width:102px; border-radius:100px; font-size:16px; padding:14px 20px; }
 .homepage .site-header .header-cta:hover { background:var(--brand-accent-hover)!important; }
 @media(min-width:1081px) {
