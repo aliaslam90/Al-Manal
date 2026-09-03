@@ -1,6 +1,6 @@
 /* Shared header appearance on every page, including the homepage. */
 body .site-header { height:102px; padding:8px 32px; background:#fff; }
-body .site-header .logo img { filter:brightness(0) saturate(100%) invert(12%) sepia(82%) saturate(4991%) hue-rotate(240deg) brightness(76%) contrast(115%); }
+body .site-header .logo img { filter:none; }
 body .site-header .header-cta { background:var(--brand-accent)!important; min-width:102px; border-radius:100px; font-size:16px; padding:14px 20px; margin-left:auto; }
 body .site-header .header-cta:hover { background:var(--brand-accent-hover)!important; }
 body .site-header .nav .more-menu a.active:after { display:block; }
