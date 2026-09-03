@@ -8,8 +8,8 @@ body .site-header .nav .more-menu a.active:after { display:block; }
  body .site-header .nav { position:absolute; left:50%; transform:translateX(-50%); gap:32px; font-size:16px; white-space:nowrap; }
  body .site-header .nav>a.active { background:var(--brand-primary); color:#fff; border-radius:100px; padding:10px 18px; font-weight:500; }
  body .site-header .nav>a.active:after { bottom:0; }
- body .site-header .more-trigger { padding:0; gap:2px; font-size:16px; min-height:44px; }
- body .site-header .more-dropdown.open .more-trigger,body .site-header .more-dropdown.current .more-trigger { padding:0 14px; }
+ body .site-header .more-trigger { min-height:44px; padding:10px 16px; gap:6px; border-radius:100px; font-size:16px; line-height:24px; }
+ body .site-header .more-dropdown.open .more-trigger,body .site-header .more-dropdown.current .more-trigger { padding:10px 16px; }
 }
 @media(min-width:1081px) and (max-width:1250px) { body .site-header .nav { gap:20px; } }
 @media(max-width:1080px) { body .site-header { height:82px; padding:6px 20px; } }

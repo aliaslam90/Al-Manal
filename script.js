@@ -1,4 +1,51 @@
 const figmaIcon = (name, size = 22) => `<img class="figma-icon" src="assets/icons/${name}.svg" width="${size}" height="${size}" alt="" aria-hidden="true">`;
+
+// Keep the footer identical on every page. Older pages contain slightly different
+// static versions, so this shared template is the single rendered source of truth.
+document.querySelectorAll('body > footer:not(.resource-footer)').forEach(footer => {
+  footer.id = 'footer';
+  footer.className = 'site-footer';
+  footer.innerHTML = `
+    <div class="footer-main">
+      <div class="footer-brand">
+        <a class="footer-logo" href="index.html" aria-label="Al Manal Dental Centre home">
+          <img src="assets/logo.png" alt="Al Manal Dental Centre">
+        </a>
+        <p>Dentistry as Art. Smiles as Identity.<br>Excellence in dental care with artistic<br class="footer-copy-break"> sensitivity and genuine empathy.</p>
+        <div class="socials" aria-label="Social media">
+          <a href="#" aria-label="Instagram"></a>
+          <a href="#" aria-label="Facebook"></a>
+          <a href="#" aria-label="Twitter"></a>
+          <a href="#" aria-label="LinkedIn"></a>
+        </div>
+      </div>
+      <nav class="footer-navigation" aria-label="Footer navigation">
+        <h3>Navigation</h3>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="index.html#concept">Concept</a>
+          <a href="services.html">Treatments</a>
+          <a href="doctors.html">Our Artists</a>
+          <a href="index.html#gallery">Gallery</a>
+          <a href="contact.html">Contact Us</a>
+        </div>
+      </nav>
+      <div class="footer-subscribe">
+        <h3>Subscribe</h3>
+        <p>Receive smile-care tips and clinic news, thoughtfully curated.</p>
+        <form class="subscribe">
+          <label class="sr-only" for="footer-email">Email address</label>
+          <input id="footer-email" type="email" inputmode="email" autocomplete="email" placeholder="Enter Your Email" required>
+          <button type="submit" aria-label="Subscribe"></button>
+        </form>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>MOHAP APPROVAL LICENSE: RE6YF8UV-101224</span>
+      <span>©2026 Al Manal. All Rights Reserved.</span>
+    </div>`;
+});
 const valueIcons = ['personal-care', 'artistic', 'calm', 'technology', 'professionals', 'excellence'];
 const values = [
   ['✦','Personalized Care','We take time to understand each patient, because no two smiles are the same.'],
@@ -109,7 +156,18 @@ window.addEventListener('resize', () => {
   if (window.innerWidth > 1080) setMenuOpen(false);
 });
 
-document.querySelectorAll('form').forEach(form => form.addEventListener('submit', e => { e.preventDefault(); const button=form.querySelector('button[type="submit"]'); if(button){button.textContent='Request received ✓'; button.disabled=true;} }));
+document.querySelectorAll('form').forEach(form => form.addEventListener('submit', e => {
+  e.preventDefault();
+  const button = form.querySelector('button[type="submit"]');
+  if (!button) return;
+  if (form.classList.contains('subscribe')) {
+    button.textContent = '✓';
+    button.setAttribute('aria-label', 'Subscribed');
+  } else {
+    button.textContent = 'Request received ✓';
+  }
+  button.disabled = true;
+}));
 
 document.querySelectorAll('.faq-question').forEach(button => button.addEventListener('click', () => {
   const item = button.closest('.faq-item');
