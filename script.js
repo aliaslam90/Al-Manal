@@ -9,7 +9,7 @@ document.querySelectorAll('body > footer:not(.resource-footer)').forEach(footer 
     <div class="footer-main">
       <div class="footer-brand">
         <a class="footer-logo" href="index.html" aria-label="Al Manal Dental Centre home">
-          <img src="assets/logo.png" alt="Al Manal Dental Centre">
+          <img src="assets/logo-original.png" alt="Al Manal Dental Centre">
         </a>
         <p>Dentistry as Art. Smiles as Identity.<br>Excellence in dental care with artistic<br class="footer-copy-break"> sensitivity and genuine empathy.</p>
         <div class="socials" aria-label="Social media">
