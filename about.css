@@ -1,7 +1,7 @@
 /* About reference: Figma 133:23. Shared appointment component in homepage.css. */
 .about-page { --home-heading:#19093e; }
-:is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero { width:100%; max-width:none; height:393px; padding:32px 6px 0; margin:0; border-radius:60px 60px 40px 40px; overflow:hidden; background:#fff; }
-:is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero>div { position:relative; isolation:isolate; width:100%; height:361px; padding:98px 20px 0; border-radius:60px 60px 0 0; background:#d2b446; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; }
+:is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero { width:100%; max-width:none; height:385px; padding:0; margin:0; border-radius:0; overflow:hidden; background:#d2b446; }
+:is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero>div { position:relative; isolation:isolate; width:100%; height:385px; padding:98px 20px 0; border-radius:0; background:#d2b446; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; }
 :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero>div:after { content:""; display:block; position:absolute; z-index:-1; top:55px; right:48px; width:476px; height:664px; background:url('assets/about-watermark.png') center/contain no-repeat; opacity:.3; }
 :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero .eyebrow { font-size:16px; line-height:24px; padding:6px 12px; background:white; box-shadow:0 0 0 3px white,0 4px 2px #8c96a940,0 8px 17px #8c96a91a; }
 :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero h1 { font-size:70px; line-height:84px; letter-spacing:-.7px; color:#0e1792; margin:32px 0 0; }
@@ -75,8 +75,8 @@
  :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero { width:100%; }
 }
 @media(max-width:600px) {
- :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero { width:100%; height:290px; padding-top:18px; border-radius:32px; }
- :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero>div { height:272px; padding:64px 16px 0; border-radius:32px 32px 0 0; }
+ :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero { width:100%; height:340px; padding:0; border-radius:0; }
+ :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero>div { height:340px; padding:64px 16px 0; border-radius:0; }
  :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero>div:after { right:-130px; width:340px; height:470px; top:40px; }
  :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero h1 { font-size:52px; line-height:62px; margin-top:24px; }
  .about-page .about-story { padding:48px 20px 32px; gap:48px; }

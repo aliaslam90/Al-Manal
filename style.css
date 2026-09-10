@@ -199,7 +199,7 @@ input,select,textarea{max-width:100%;min-width:0}
 
 /* Shared site footer — matches the approved footer reference on every page. */
 .sr-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;border:0!important}
-.site-footer{background:#fff;padding:32px 40px;color:#fff}
+.site-footer{background:#f7fafe;padding:32px 40px;color:#fff}
 .site-footer .footer-main,.site-footer .footer-bottom{width:100%;max-width:1360px;margin:0 auto;background:#111b96;color:#fff}
 .site-footer .footer-main{border-radius:32px 32px 0 0;padding:0;display:grid;grid-template-columns:.9fr .85fr 1.25fr;gap:0;align-items:stretch;overflow:hidden}
 .site-footer .footer-brand{padding:64px 56px;background:#fff;color:#111b96}
