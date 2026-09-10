@@ -68,14 +68,57 @@ const treatments = [
 ];
 const treatmentGrid = document.querySelector('#treatment-grid');
 document.querySelectorAll('[data-treatment]').forEach(link => link.addEventListener('click', () => {
-  const select = document.querySelector('#appointment select');
-  if (select) select.value = link.dataset.treatment;
+  const select = document.querySelector('#appointment-service');
+  if (select) {
+    select.value = link.dataset.treatment;
+    select.dispatchEvent(new Event('change', { bubbles: true }));
+  }
 }));
 if (treatmentGrid) treatmentGrid.innerHTML = treatments.map(t => `<article><img src="assets/${t[0]}" alt="${t[1]}"><div><h3>${t[1]}</h3><p>${t[2]}</p><a href="#contact">Learn More ${figmaIcon('arrow', 17)}</a></div></article>`).join('');
 
 const doctors = [['doctor-1.png','Dr. Talaat Al-Qadi'],['doctor-2.png','Dr. Ghaeth Helal'],['doctor-3.png','Dr. May Abdelraouf'],['doctor-4.png','Dr. Manal Dandan']];
 const teamGrid = document.querySelector('#team-grid');
 if (teamGrid) teamGrid.innerHTML = doctors.map(d => `<article><img src="assets/${d[0]}" alt="${d[1]}"><h3>${d[1]}</h3><p>G.P. Dentist</p></article>`).join('');
+
+const doctorProfiles = {
+  mohamed:{name:'Dr. Mohamed Fadl',role:'General Practitioner with Implant Privilege',summary:'Dr. Mohamed Fadl is a General Practitioner with clinical experience in dental implant procedures under granted privileges. He has over 13 years of clinical experience, including two years in the UAE and extensive experience abroad.',image:null,experience:['13+ years of clinical experience','2 years of experience in the UAE','Clinical experience abroad','Dental implant procedures under granted privileges'],education:[['Bachelor of Dental Surgery','El Razi University']],expertise:['General dental care','Dental implant procedures under granted privileges']},
+  talaat:{name:'Dr. Talaat Al-Qadi',role:'General Dentist',summary:'Dr. Talaat Al-Qadi is a General Dentist with 31 years of experience across the UAE, Saudi Arabia, and Syria. He has extensive experience across general and restorative dental treatments.',image:'assets/doctors-talaat.png',experience:['31 years of clinical experience','Registered in the UAE, Saudi Arabia, and Syria'],education:[['Bachelor in Dentistry','Aleppo University']],expertise:['Tooth extractions','Crowns and fillings','Root canal treatments','General dental care']},
+  ghaeth:{name:'Dr. Ghaeth Helal',role:'General Dentist',summary:'Dr. Ghaeth Helal is a General Dentist with five years of experience in Syria and the UAE, with experience across cosmetic, restorative, and general dental care.',image:'assets/doctors-ghaeth.png',experience:['5 years of clinical experience','Experience in Syria and the UAE'],education:[['Bachelor of Dental Surgery','Damascus University']],expertise:['Cosmetic dentistry','Fillings','Crowns and bridges','General dental care']},
+  may:{name:'Dr. May Abdelraouf',role:'General Dentist',summary:'Dr. May Abdelraouf is a General Dentist with 20 years of experience in the UAE. She holds a Master’s degree in Dental Laser and has extensive experience across general, restorative, and cosmetic dental treatments.',image:'assets/doctors-may.png',experience:['20 years of clinical experience in the UAE','Advanced training in dental laser treatment'],education:[['Bachelor of Dental Surgery','Misr University for Science and Technology'],['Master’s Degree in Dental Laser','RWTH Aachen University, Germany']],expertise:['Tooth extractions','Crowns and fillings','Root canal treatments','Cosmetic dental procedures']},
+  manal:{name:'Dr. Manal Dandan',role:'General Dentist',summary:'Dr. Manal Dandan is a General Dentist with 29 years of experience in the UAE and extensive experience across cosmetic, restorative, and general dental care.',image:'assets/doctors-manal.png',experience:['29 years of clinical experience in the UAE'],education:[['Bachelor of Dental Surgery','Damascus University']],expertise:['Cosmetic dentistry','Root canal treatments','Crowns and veneers','Fillings and general dental care']},
+  mustafa:{name:'Dr. Mustafa Ramzi',role:'General Dentist',summary:'Dr. Mustafa Ramzi is a General Dentist with 35 years of experience in the UAE and extensive experience across cosmetic, restorative, and general dental care.',image:null,experience:['35 years of clinical experience in the UAE'],education:[['Bachelor of Dental Surgery','Damascus University']],expertise:['Cosmetic dentistry','Root canal treatments','Crowns and bridges','General dental care']},
+  amr:{name:'Dr. Amr Hassoun',role:'Orthodontist',summary:'Dr. Amr Hassoun is an Orthodontist with more than nine years of experience in Syria and the UAE.',image:null,experience:['9+ years of clinical experience','Experience in Syria and the UAE'],education:[['Bachelor in Dental Surgery','Damascus University'],['Master’s Degree in Orthodontics','Damascus University']],expertise:['Orthodontics']}
+};
+const profileName = document.querySelector('#profile-name');
+if (profileName) {
+  const key = new URLSearchParams(location.search).get('doctor') || 'talaat';
+  const profile = doctorProfiles[key] || doctorProfiles.talaat;
+  document.title = `${profile.name} — Al Manal Dental Center`;
+  profileName.textContent = profile.name;
+  document.querySelector('#profile-role').textContent = profile.role;
+  document.querySelector('#profile-summary').textContent = profile.summary;
+  const photo = document.querySelector('#profile-photo');
+  const image = document.querySelector('#profile-image');
+  image.src = profile.image || 'assets/logo-original.png';
+  image.alt = profile.image ? profile.name : `Al Manal logo placeholder for ${profile.name}`;
+  photo.classList.toggle('is-placeholder', !profile.image);
+  document.querySelector('#profile-experience').innerHTML = profile.experience.map(item => `<li>${item}</li>`).join('');
+  document.querySelector('#profile-education').innerHTML = profile.education.map(([degree,school]) => `<h3>${degree}</h3><p>${school}</p>`).join('');
+  document.querySelector('#profile-expertise').innerHTML = profile.expertise.map(item => `<li>${item}</li>`).join('');
+}
+
+// Appointment flow: a service must be selected before the doctor field is available.
+const appointmentService = document.querySelector('#appointment-service');
+const appointmentDoctor = document.querySelector('#appointment-doctor');
+if (appointmentService && appointmentDoctor) {
+  appointmentService.addEventListener('change', () => {
+    const hasService = Boolean(appointmentService.value);
+    appointmentDoctor.disabled = !hasService;
+    appointmentDoctor.innerHTML = hasService
+      ? `<option value="">Select a doctor</option>${doctors.map(([, name]) => `<option>${name}</option>`).join('')}`
+      : '<option value="">Select a service first</option>';
+  });
+}
 
 // Shared accessible "More" navigation dropdown.
 document.querySelectorAll('.nav').forEach(nav => {
@@ -245,7 +288,7 @@ if (!reduceMotion.matches) {
     '.policy-content > *', '.page-hero > div',
     '.values-grid article', '.home-concept-grid article', '.team-grid article',
     '.experience-list article', '.services-cards article', '.services-support > *',
-    '.about-story > *', '.metrics-grid article', '.about-voice-values > *',
+    '.about-story > *', '.about-purpose article', '.metrics-grid article', '.metrics-grid a', '.about-voice-values > *', '.about-values-list > div',
     '.doctors-top > *', '.doctors-grid article', '.contact-dashboard > *',
     '.contact-primary > *', '.contact-secondary > *', '.home-appointment > *',
     '.footer-main > *', '.footer-bottom > *'
@@ -266,4 +309,10 @@ if (!reduceMotion.matches) {
   } else {
     revealTargets.forEach(element => element.classList.add('is-visible'));
   }
+}
+
+const enquiryType = new URLSearchParams(window.location.search).get('enquiry');
+if (enquiryType === 'packages') {
+  const contactService = document.querySelector('#contact-form select[name="service"]');
+  if (contactService) contactService.value = 'Packages & Offers';
 }

@@ -1,10 +1,11 @@
 /* About reference: Figma 133:23. Shared appointment component in homepage.css. */
 .about-page { --home-heading:#19093e; }
 :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero { width:100%; max-width:none; height:393px; padding:32px 6px 0; margin:0; border-radius:60px 60px 40px 40px; overflow:hidden; background:#fff; }
-:is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero>div { position:relative; isolation:isolate; width:100%; height:361px; padding:98px 20px 0; border-radius:60px 60px 0 0; background:linear-gradient(180deg,#e3e5ff 0%,#f3f4ff 66%,#fbfbff 100%); display:flex; flex-direction:column; align-items:center; justify-content:flex-start; }
+:is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero>div { position:relative; isolation:isolate; width:100%; height:361px; padding:98px 20px 0; border-radius:60px 60px 0 0; background:#d2b446; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; }
 :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero>div:after { content:""; display:block; position:absolute; z-index:-1; top:55px; right:48px; width:476px; height:664px; background:url('assets/about-watermark.png') center/contain no-repeat; opacity:.3; }
 :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero .eyebrow { font-size:16px; line-height:24px; padding:6px 12px; background:white; box-shadow:0 0 0 3px white,0 4px 2px #8c96a940,0 8px 17px #8c96a91a; }
 :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero h1 { font-size:70px; line-height:84px; letter-spacing:-.7px; color:#0e1792; margin:32px 0 0; }
+.about-page .page-hero h1 { max-width:1050px; font-size:clamp(46px,5vw,70px); line-height:1.08; }
 .about-page .about-story { width:100%; max-width:none; margin:0; padding:80px max(40px,calc((100% - 1360px)/2)) 20px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:80px; align-items:start; }
 .about-page .about-story-art { position:relative; height:522px; overflow:visible; }
 .about-page .about-story-art>img { width:100%; height:100%; object-fit:cover; border:1px solid #ebecff; border-radius:32px; box-shadow:10px 10px 40px #07006c12; }
@@ -12,7 +13,7 @@
 .about-commitment h3 { font-size:18px; line-height:28px; font-weight:600; margin:0 0 4px; }
 .about-commitment p { font-size:14px; line-height:19.25px; font-weight:300; margin:0; }
 .commitment-count { padding:16px 20px; border-radius:16px; background:#0e1792; color:white; flex-shrink:0; }
-.commitment-count b { display:block; font-size:30px; line-height:36px; }
+.commitment-count b { display:block; font-size:clamp(22px,2vw,30px); line-height:36px; }
 .commitment-count span { display:block; font-size:12px; line-height:16px; font-weight:300; }
 .about-page .about-story-copy { padding-top:16px; min-width:0; }
 .about-page .about-story-copy .lead { font-size:18px; line-height:29.25px; margin:0 0 32px; color:black; }
@@ -23,7 +24,8 @@
 .about-page .values-grid p { margin:0; color:black; font-size:14px; line-height:22.75px; }
 .about-metrics { width:100%; max-width:none; padding:0 max(40px,calc((100% - 1360px)/2)) 32px; margin:0; }
 .about-page .metrics-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; }
-.about-page .metrics-grid article { min-height:234px; padding:40px; border:1px solid #ebecff; border-radius:32px; box-shadow:0 8px 17px #dee5ed; background:#fff; }
+.about-page .metrics-grid article,.about-page .metrics-grid .google-rating-card { min-height:234px; padding:40px; border:1px solid #ebecff; border-radius:32px; box-shadow:0 8px 17px #dee5ed; background:#fff; color:inherit; }
+.about-page .metrics-grid .google-rating-card { display:block; }
 .metric-label { display:flex; gap:16px; align-items:center; margin-bottom:24px; }
 .about-page .metric-label i { width:48px; height:48px; border-radius:12px; background:#f3f4f7; margin:0; }
 .about-page .metric-label span { font-size:16px; line-height:20px; font-weight:700; letter-spacing:.7px; text-transform:uppercase; color:black; }
@@ -37,6 +39,11 @@
 :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero>div:after { z-index:0; background-image:url('assets/home-watermark.png'); filter:brightness(0) invert(1); }
 :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero .eyebrow,:is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero h1 { position:relative; z-index:1; }
 .about-voice-values { width:100%; max-width:none; padding:64px max(40px,calc((100% - 1360px)/2)); margin:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.about-purpose { width:100%; padding:44px max(40px,calc((100% - 1360px)/2)) 20px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.about-purpose article { padding:36px 40px; border:1px solid #ebecff; border-radius:28px; background:#fbfbff; }
+.about-purpose h2 { margin:0 0 18px; font-size:38px; line-height:1.1; color:#19093e; }
+.about-purpose p { margin:0 0 14px; font-size:17px; line-height:1.65; }
+.about-purpose p:last-child { margin-bottom:0; }
 .about-voice,.about-core { padding:40px; border-radius:32px; border:1px solid #ebecff; min-width:0; }
 .about-voice { background:#fbf8ef; border-color:#f3eacc; }
 .about-core { box-shadow:0 8px 17px #dee5ed; }
@@ -51,12 +58,18 @@
 .about-core-grid>div { min-height:208px; background:#f9fafb; border-radius:16px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; }
 .about-core-grid i { border-radius:50%; box-shadow:0 1px 1px #0000000d; }
 .about-core-grid h3 { font-size:20px; line-height:24px; color:black; margin:0; }
+.about-values-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.about-values-list>div { padding:22px; border-radius:16px; background:#f9fafb; }
+.about-values-list h3 { margin:0 0 8px; font-size:20px; line-height:1.3; color:#19093e; }
+.about-values-list em { display:block; margin-bottom:8px; color:#0e1792; font-weight:700; }
+.about-values-list p { margin:0; font-size:14px; line-height:1.55; }
 @media(max-width:1250px) { .about-page .about-story { gap:40px; } .about-page .metrics-grid article { padding:24px; } .about-page .metrics-grid b { font-size:40px; } .about-voice,.about-core { padding:28px; } }
 @media(max-width:1080px) {
  .about-page .about-story { grid-template-columns:1fr; padding:64px 28px 40px; gap:64px; }
  .about-page .about-story-art { max-width:640px; width:100%; margin:auto; }
  .about-page .about-story-copy { padding:0; }
  .about-page .metrics-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+ .about-purpose { grid-template-columns:1fr; padding:40px 28px 16px; }
  .about-metrics { padding:0 28px 24px; }
  .about-voice-values { grid-template-columns:1fr; padding:40px 28px 64px; }
  :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero { width:100%; }
@@ -80,9 +93,15 @@
  .about-page .values-grid article { min-height:0; }
  .about-metrics { padding:0 20px 20px; }
  .about-page .metrics-grid article { min-height:220px; padding:28px; }
+ .about-page .metrics-grid .google-rating-card { min-height:220px; padding:28px; }
+ .about-purpose { padding:32px 20px 12px; }
+ .about-purpose article { padding:26px 24px; border-radius:24px; }
+ .about-purpose h2 { font-size:32px; }
+ .about-purpose p { font-size:16px; }
  .about-voice-values { padding:32px 20px 48px; }
  .about-voice,.about-core { padding:24px; border-radius:24px; }
  .about-voice blockquote { font-size:28px; line-height:34px; }
  .about-core-grid { grid-template-columns:1fr; gap:12px; }
  .about-core-grid>div { min-height:130px; }
+ .about-values-list { grid-template-columns:1fr; }
 }

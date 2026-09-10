@@ -3,7 +3,7 @@
 .contact-view .page-hero>div:after { background-size:100% 100%; }
 .contact-dashboard { width:100%; max-width:none; padding:32px max(40px,calc((100% - 1360px)/2)) 80px; margin:0; display:grid; grid-template-columns:minmax(0,898.66fr) minmax(0,437.34fr); gap:24px; align-items:start; }
 .contact-primary,.contact-secondary { display:flex; flex-direction:column; gap:24px; min-width:0; }
-.contact-request,.contact-map-card,.reach-card,.hours-card,.contact-social { border:1px solid #ebecff; border-radius:32px; background:#fff; overflow:hidden; }
+.contact-request,.contact-map-card,.reach-card,.hours-card,.payment-options,.contact-social { border:1px solid #ebecff; border-radius:32px; background:#fff; overflow:hidden; }
 .contact-request { padding:40px; }
 .contact-request h2 { font-size:48px; line-height:48px; color:#19093e; margin:28px 0 32px; }
 .contact-request form { display:flex; flex-direction:column; gap:24px; }
@@ -32,6 +32,10 @@
 .hours-card>div:last-child { display:flex; flex-direction:column; gap:16px; }
 .hours-card p { min-height:33px; display:flex; align-items:flex-start; justify-content:space-between; gap:24px; border-bottom:1px solid #e5e7eb; margin:0; font-size:16px; line-height:24px; }
 .hours-card p b { font-weight:500; }
+.payment-options { padding:32px 40px; background:#fbf8ef; border-color:#f3eacc; }
+.payment-options h2 { margin:0 0 20px; font-size:30px; line-height:1.2; color:#19093e; }
+.payment-options>div { display:flex; gap:12px; flex-wrap:wrap; }
+.payment-options span { min-width:112px; padding:13px 22px; border:1px solid #e7dcae; border-radius:999px; background:white; text-align:center; font-weight:700; color:#0e1792; }
 .contact-map-card { padding:40px; height:301px; position:relative; }
 .contact-map-card>img { width:100%; height:100%; object-fit:cover; }
 .contact-map-card:after { content:""; position:absolute; inset:40px; background:#0003; pointer-events:none; }
@@ -43,4 +47,4 @@
 @media(hover:hover) { .contact-request button:hover { background:#070d70; } .contact-social a:hover { transform:translateY(-3px); background:#f3eacc; } }
 @media(max-width:1000px) { .contact-dashboard { padding:32px 28px 64px; grid-template-columns:1fr; } .contact-secondary { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); } .reach-card { grid-row:span 2; } .contact-social>div { display:grid; grid-template-columns:repeat(2,56px); } }
 @media(max-width:700px) { .contact-secondary { display:flex; } .contact-fields { grid-template-columns:1fr; } }
-@media(max-width:600px) { .contact-dashboard { padding:32px 20px 48px; } .contact-request,.contact-map-card,.reach-card,.hours-card,.contact-social { border-radius:24px; padding:24px; } .contact-request h2 { font-size:40px; line-height:42px; margin:12px 0 28px; } .contact-request textarea { height:150px; } .contact-map-card { height:260px; } .contact-map-card:after { inset:24px; } .contact-map-card>a { min-width:220px; } .contact-social { height:240px; } .contact-social>div { display:flex; gap:8px; } .contact-social a { width:52px; height:52px; } }
+@media(max-width:600px) { .contact-dashboard { padding:32px 20px 48px; } .contact-request,.contact-map-card,.reach-card,.hours-card,.payment-options,.contact-social { border-radius:24px; padding:24px; } .contact-request h2 { font-size:40px; line-height:42px; margin:12px 0 28px; } .contact-request textarea { height:150px; } .contact-map-card { height:260px; } .contact-map-card:after { inset:24px; } .contact-map-card>a { min-width:220px; } .contact-social { height:240px; } .contact-social>div { display:flex; gap:8px; } .contact-social a { width:52px; height:52px; } }
