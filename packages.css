@@ -1,0 +1,105 @@
+.packages-page { --package-ink:#171827; --package-blue:#0e1792; --package-gold:#d2b446; color:var(--package-ink); }
+.packages-page main { overflow:hidden; }
+.packages-container { width:min(100% - 80px, 1280px); margin-inline:auto; }
+
+.packages-hero { padding:100px 0 108px; text-align:center; background:radial-gradient(circle at 82% 62%,#e3eaff 0,transparent 30%),radial-gradient(circle at 8% 20%,#eef8ff 0,transparent 35%),linear-gradient(135deg,#fff,#f9faff 55%,#eef3ff); }
+.packages-hero h1,.packages-heading h2,.packages-gallery h2 { color:#191b2b; font-size:clamp(46px,5vw,70px); line-height:1.06; letter-spacing:-.025em; }
+.packages-hero-tagline { margin:22px 0 28px; color:var(--package-blue); font-size:clamp(17px,1.6vw,21px); font-style:italic; font-weight:600; line-height:1.45; }
+.packages-hero-intro { max-width:820px; margin:0 auto; font-size:17px; line-height:1.7; }
+.packages-badges { display:flex; justify-content:center; flex-wrap:wrap; gap:14px; margin:38px 0 0; padding:0; list-style:none; }
+.packages-badges li { display:inline-flex; align-items:center; gap:9px; min-height:39px; padding:8px 17px; border-radius:999px; background:#f4e6ab; color:#17205f; font:600 14px/1.3 "Cormorant Garamond",serif; box-shadow:0 2px 5px #0e17921a; }
+.packages-badges li:before { content:"✓"; font:700 15px/1 Inter,sans-serif; color:var(--package-blue); }
+
+.packages-offers { padding-top:100px; padding-bottom:100px; }
+.packages-heading { max-width:820px; margin:0 auto 62px; text-align:center; }
+.packages-heading h2 { margin:0 0 23px; }
+.packages-heading p { margin:0; font-size:17px; line-height:1.7; }
+.packages-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+.package-card { display:flex; flex-direction:column; min-width:0; padding:32px; border:1px solid #e7e9f4; border-radius:28px; background:#fff; box-shadow:0 6px 24px #0e179208; }
+.package-icon { display:grid; place-items:center; width:54px; height:54px; flex:0 0 54px; margin-bottom:24px; border-radius:17px; background:#f4e6ab; color:var(--package-blue); }
+.package-icon img { width:26px; height:26px; object-fit:contain; }
+.package-percent { font:700 27px/1 Inter,sans-serif; }
+.package-card h3 { margin:0 0 16px; color:#1b1c2b; font-size:31px; line-height:1.08; }
+.package-card p { margin:0 0 20px; color:#3f475b; font-size:14px; line-height:1.65; }
+.package-card ul { margin:0 0 28px; padding-left:18px; color:#161827; font-size:14px; line-height:1.65; }
+.package-card li { padding-left:2px; margin:0 0 7px; }
+.package-cta { display:flex; align-items:center; justify-content:space-between; gap:12px; min-height:58px; margin-top:auto; padding:8px 11px 8px 24px; border-radius:999px; background:var(--package-gold); color:#0c145a; font-size:15px; font-weight:700; transition:background .2s ease,transform .2s ease; }
+.package-cta span { display:grid; place-items:center; width:37px; height:37px; flex:0 0 37px; border-radius:50%; background:var(--package-blue); color:#fff; font-size:23px; font-weight:400; line-height:1; }
+.package-cta:hover { background:#e3c656; transform:translateY(-2px); }
+.package-cta:focus-visible { outline:3px solid var(--package-blue); outline-offset:4px; }
+
+.packages-payments { padding:100px 0 72px; background:linear-gradient(180deg,#fbfaf2,#fff); }
+.packages-payments .packages-heading { margin-bottom:58px; }
+.payment-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:24px; }
+.payment-card { min-width:0; padding:26px 24px 32px; border-radius:25px; background:#eef2ff; text-align:center; }
+.payment-wordmark { display:grid; place-items:center; min-height:88px; margin-bottom:24px; padding:15px; border-radius:17px; background:#fff; font-weight:700; }
+.payment-wordmark.homat { color:#151a61; font-size:18px; font-family:"Cormorant Garamond",serif; }
+.payment-wordmark.tabby { color:#088f68; font-size:24px; font-weight:700; letter-spacing:-.04em; }
+.payment-wordmark.tamara { color:#a05f6c; font-size:24px; font-weight:700; letter-spacing:-.04em; }
+.payment-wordmark.faza { color:#142b73; font-size:25px; font-weight:700; letter-spacing:.1em; }
+.payment-card h3 { margin:0 0 12px; color:#20223c; font-size:27px; line-height:1.1; }
+.payment-card p { margin:0; color:#465067; font-size:13px; line-height:1.6; }
+.payments-note { margin:50px auto 0; text-align:center; color:#4c5366; font-size:14px; }
+
+.packages-gallery { padding-top:95px; padding-bottom:110px; }
+.packages-gallery h2 { margin:0 0 55px; text-align:center; }
+.packages-gallery-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:24px; }
+.packages-gallery-grid img { width:100%; height:420px; border-radius:25px; object-fit:cover; }
+.packages-gallery-grid img:first-child { object-position:center 28%; }
+.packages-gallery-grid img:nth-child(2) { object-position:55% center; }
+
+.packages-footer { padding:72px 0 0; background:#f6e8b5; color:#101b67; }
+.packages-footer-grid { display:grid; grid-template-columns:1.25fr 1.4fr .9fr 1.1fr; gap:52px; padding-bottom:60px; }
+.packages-footer-brand img { width:155px; height:100px; object-fit:contain; object-position:left center; }
+.packages-footer-brand p { max-width:270px; margin:22px 0 0; font-size:13px; line-height:1.65; }
+.packages-footer h2 { margin:0 0 22px; color:#101b67; font-size:26px; line-height:1.15; }
+.packages-footer a { width:fit-content; max-width:100%; }
+.packages-footer a:hover { text-decoration:underline; text-underline-offset:3px; }
+.packages-footer-links>div { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:13px 20px; }
+.packages-footer-links a,.packages-footer-services a,.packages-footer-contact a,.packages-footer-contact span { display:block; font-size:13px; line-height:1.45; }
+.packages-footer-services,.packages-footer-contact { display:flex; flex-direction:column; gap:13px; }
+.packages-footer-services h2,.packages-footer-contact h2 { margin-bottom:9px; }
+.packages-footer-bottom { display:flex; justify-content:space-between; gap:20px; padding:24px 0 32px; border-top:1px solid #101b6733; font-size:12px; line-height:1.4; }
+
+@media(max-width:1020px) {
+  .packages-container { width:min(100% - 56px, 820px); }
+  .packages-hero { padding:85px 0 90px; }
+  .packages-offers { padding-top:80px; padding-bottom:80px; }
+  .packages-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+  .payment-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+  .packages-gallery-grid { gap:16px; }
+  .packages-gallery-grid img { height:330px; }
+  .packages-footer-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:42px; }
+}
+@media(max-width:680px) {
+  .packages-container { width:calc(100% - 40px); }
+  .packages-hero { padding:70px 0 76px; }
+  .packages-hero h1,.packages-heading h2,.packages-gallery h2 { font-size:clamp(39px,10vw,52px); line-height:1.08; }
+  .packages-hero-tagline { margin:20px 0 24px; font-size:17px; }
+  .packages-hero-intro,.packages-heading p { font-size:15px; line-height:1.7; }
+  .packages-badges { margin-top:30px; gap:9px; }
+  .packages-badges li { min-height:36px; padding:7px 13px; font-size:13px; }
+  .packages-offers { padding-top:70px; padding-bottom:70px; }
+  .packages-heading { margin-bottom:38px; }
+  .packages-heading h2 { margin-bottom:18px; }
+  .packages-grid,.payment-grid,.packages-gallery-grid { grid-template-columns:1fr; gap:18px; }
+  .package-card { padding:26px; border-radius:24px; }
+  .package-card h3 { font-size:29px; }
+  .packages-payments { padding:72px 0 64px; }
+  .payment-card { padding:24px; }
+  .payment-wordmark { min-height:76px; margin-bottom:20px; }
+  .payments-note { margin-top:36px; }
+  .packages-gallery { padding-top:72px; padding-bottom:80px; }
+  .packages-gallery h2 { margin-bottom:36px; }
+  .packages-gallery-grid img { height:320px; }
+  .packages-footer { padding-top:56px; }
+  .packages-footer-grid { grid-template-columns:1fr; gap:38px; padding-bottom:46px; }
+  .packages-footer-brand p { max-width:470px; }
+  .packages-footer-bottom { flex-direction:column; gap:9px; }
+}
+@media(max-width:380px) {
+  .packages-container { width:calc(100% - 32px); }
+  .package-card { padding:22px; }
+  .package-card h3 { font-size:27px; }
+  .packages-gallery-grid img { height:275px; }
+}

@@ -2,7 +2,7 @@ const figmaIcon = (name, size = 22) => `<img class="figma-icon" src="assets/icon
 
 // Keep the footer identical on every page. Older pages contain slightly different
 // static versions, so this shared template is the single rendered source of truth.
-document.querySelectorAll('body > footer:not(.resource-footer)').forEach(footer => {
+document.querySelectorAll('body > footer:not(.resource-footer):not(.packages-footer)').forEach(footer => {
   footer.id = 'footer';
   footer.className = 'site-footer';
   footer.innerHTML = `
@@ -25,6 +25,7 @@ document.querySelectorAll('body > footer:not(.resource-footer)').forEach(footer 
           <a href="index.html">Home</a>
           <a href="about.html">About Us</a>
           <a href="index.html#concept">Concept</a>
+          <a href="packages.html">Packages &amp; Offers</a>
           <a href="services.html">Treatments</a>
           <a href="doctors.html">Our Artists</a>
           <a href="index.html#gallery">Gallery</a>
@@ -310,8 +311,12 @@ if (!reduceMotion.matches) {
   }
 }
 
-const enquiryType = new URLSearchParams(window.location.search).get('enquiry');
+const enquiryParams = new URLSearchParams(window.location.search);
+const enquiryType = enquiryParams.get('enquiry');
 if (enquiryType === 'packages') {
   const contactService = document.querySelector('#contact-form select[name="service"]');
   if (contactService) contactService.value = 'Packages & Offers';
+  const packageName = enquiryParams.get('package');
+  const contactMessage = document.querySelector('#contact-form textarea[name="message"]');
+  if (packageName && contactMessage) contactMessage.value = `I am interested in the ${packageName} package.`;
 }
