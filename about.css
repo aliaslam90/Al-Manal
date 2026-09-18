@@ -16,7 +16,9 @@
 .commitment-count b { display:block; font-size:clamp(22px,2vw,30px); line-height:36px; }
 .commitment-count span { display:block; font-size:12px; line-height:16px; font-weight:300; }
 .about-page .about-story-copy { padding-top:16px; min-width:0; }
-.about-page .about-story-copy .lead { font-size:18px; line-height:29.25px; margin:0 0 32px; color:black; }
+.about-page .about-story-copy .lead { font-size:18px; line-height:1.625; margin:0 0 32px; color:black; }
+.about-page .about-story-text p { margin:0 0 16px; }
+.about-page .about-story-text p:last-child { margin-bottom:0; }
 .about-page .values-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
 .about-page .values-grid article { padding:20px; min-height:183.5px; border:1px solid #dee5ed; border-radius:16px; box-shadow:none; }
 .about-page .values-grid i { width:44px; height:44px; border-radius:12px; background:#0e17921a; }
@@ -79,6 +81,9 @@
  :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero>div { height:340px; padding:64px 16px 0; border-radius:0; }
  :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero>div:after { right:-130px; width:340px; height:470px; top:40px; }
  :is(.about-page,.services-view,.doctors-view,.contact-view) .page-hero h1 { font-size:52px; line-height:62px; margin-top:24px; }
+ .about-page .page-hero,.about-page .page-hero>div { height:auto; min-height:0; }
+ .about-page .page-hero>div { padding:56px 20px 60px; }
+ .about-page .page-hero h1 { width:100%; max-width:550px; margin-top:24px; font-size:clamp(35px,9vw,48px); line-height:1.12; text-align:center; overflow-wrap:break-word; }
  .about-page .about-story { padding:48px 20px 32px; gap:48px; }
  .about-page .about-story-art { height:360px; margin-bottom:40px; }
  .about-page .about-story-art>img { border-radius:24px; }
