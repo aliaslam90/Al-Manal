@@ -46,16 +46,7 @@ document.querySelectorAll('body > footer:not(.resource-footer)').forEach(footer 
       <span>©2026 Al Manal. All Rights Reserved.</span>
     </div>`;
 });
-const valueIcons = ['personal-care', 'artistic', 'calm', 'technology', 'professionals', 'excellence'];
-const values = [
-  ['✦','Personalized Care','We take time to understand each patient, because no two smiles are the same.'],
-  ['◌','Artistic Sensitivity','We combine clinical precision with aesthetic awareness for natural results.'],
-  ['⌁','Calm Environment','Thoughtfully designed to feel calm, welcoming, and reassuring.'],
-  ['◇','Modern Technology','Precision instruments and digital workflows for refined results.'],
-  ['✧','Experienced Professionals','Extensive experience across general, cosmetic, and restorative dentistry.'],
-  ['✓','Clinical Excellence','Combining clinical excellence with artistic sensitivity and genuine empathy.']
-];
-const homepageAboutValues = [
+const aboutValues = [
   ['artistic', 'Poetic but clear', 'We speak with emotion and meaning, never cold or clinical.'],
   ['personal-care', 'Refined and human', 'Luxury without arrogance. Elegance without distance.'],
   ['calm', 'Confident and calm', 'Authority that reassures, not intimidates.'],
@@ -63,10 +54,7 @@ const homepageAboutValues = [
 ];
 const valuesGrid = document.querySelector('#values');
 if (valuesGrid) {
-  const cardValues = document.body.classList.contains('homepage')
-    ? homepageAboutValues
-    : values.map((value, index) => [valueIcons[index], value[1], value[2]]);
-  valuesGrid.innerHTML = cardValues.map(([icon, title, description]) => `<article><i>${figmaIcon(icon)}</i><h3>${title}</h3><p>${description}</p></article>`).join('');
+  valuesGrid.innerHTML = aboutValues.map(([icon, title, description]) => `<article><i>${figmaIcon(icon)}</i><h3>${title}</h3><p>${description}</p></article>`).join('');
 }
 
 const treatments = [
