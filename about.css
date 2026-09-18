@@ -95,6 +95,7 @@
  .commitment-count span { font-size:10px; }
  .about-page .about-story-copy .lead { font-size:16px; line-height:26px; }
  .about-page .values-grid,.about-page .metrics-grid { grid-template-columns:1fr; }
+ .about-page .metrics-grid b { white-space:normal; overflow-wrap:anywhere; font-size:clamp(32px,10vw,40px); line-height:1.15; }
  .about-page .values-grid article { min-height:0; }
  .about-metrics { padding:0 20px 20px; }
  .about-page .metrics-grid article { min-height:220px; padding:28px; }

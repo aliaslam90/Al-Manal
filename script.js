@@ -2,7 +2,7 @@ const figmaIcon = (name, size = 22) => `<img class="figma-icon" src="assets/icon
 
 // Keep the footer identical on every page. Older pages contain slightly different
 // static versions, so this shared template is the single rendered source of truth.
-document.querySelectorAll('body > footer:not(.resource-footer):not(.packages-footer)').forEach(footer => {
+document.querySelectorAll('body > footer:not(.resource-footer)').forEach(footer => {
   footer.id = 'footer';
   footer.className = 'site-footer';
   footer.innerHTML = `
@@ -93,7 +93,7 @@ const profileName = document.querySelector('#profile-name');
 if (profileName) {
   const key = new URLSearchParams(location.search).get('doctor') || 'talaat';
   const profile = doctorProfiles[key] || doctorProfiles.talaat;
-  document.title = `${profile.name} — Al Manal Dental Center`;
+  document.title = `${profile.name} | Al Manal Dental Center`;
   profileName.textContent = profile.name;
   document.querySelector('#profile-role').textContent = profile.role;
   document.querySelector('#profile-summary').textContent = profile.summary;
