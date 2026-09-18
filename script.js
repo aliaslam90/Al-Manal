@@ -55,8 +55,19 @@ const values = [
   ['✧','Experienced Professionals','Extensive experience across general, cosmetic, and restorative dentistry.'],
   ['✓','Clinical Excellence','Combining clinical excellence with artistic sensitivity and genuine empathy.']
 ];
+const homepageAboutValues = [
+  ['artistic', 'Poetic but clear', 'We speak with emotion and meaning, never cold or clinical.'],
+  ['personal-care', 'Refined and human', 'Luxury without arrogance. Elegance without distance.'],
+  ['calm', 'Confident and calm', 'Authority that reassures, not intimidates.'],
+  ['excellence', 'Inspirational, not promotional', 'We tell stories, not slogans.']
+];
 const valuesGrid = document.querySelector('#values');
-if (valuesGrid) valuesGrid.innerHTML = values.slice(0, Number(valuesGrid.dataset.count) || values.length).map((v, index) => `<article><i>${figmaIcon(valueIcons[index])}</i><h3>${v[1]}</h3><p>${v[2]}</p></article>`).join('');
+if (valuesGrid) {
+  const cardValues = document.body.classList.contains('homepage')
+    ? homepageAboutValues
+    : values.map((value, index) => [valueIcons[index], value[1], value[2]]);
+  valuesGrid.innerHTML = cardValues.map(([icon, title, description]) => `<article><i>${figmaIcon(icon)}</i><h3>${title}</h3><p>${description}</p></article>`).join('');
+}
 
 const treatments = [
   ['service-smile.png','Smile Design','A digital design process that plans your ideal smile based on your facial features.'],
