@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css?v=9">
   <link rel="stylesheet" href="homepage.css?v=7">
+  <link rel="stylesheet" href="services.css?v=3">
   <link rel="stylesheet" href="navigation.css?v=1">
 </head>
 <body class="homepage">
@@ -25,15 +26,13 @@
 
   <main>
     <section class="hero hero-video-section" id="home">
-      <video id="hero-video" class="hero-video hero-video-bg" autoplay muted loop playsinline preload="auto" poster="assets/hero-footage-poster.jpg" aria-label="Dental care video">
-        <source src="assets/hero-footage.mp4" type="video/mp4">
-        <img src="assets/hero-footage-poster.jpg" alt="Dental care">
+      <video id="hero-video" class="hero-video hero-video-bg" autoplay muted loop playsinline preload="auto" poster="assets/hero-video-poster.jpg" aria-label="Dental care video">
+        <source src="assets/hero-video-web.mp4" type="video/mp4">
       </video>
       <div class="hero-shade" aria-hidden="true"></div>
       <div class="hero-copy">
-        <span class="eyebrow">Excellence in Dental Care</span>
-        <h1>The Artistry<br>Of Dentistry</h1>
-        <p>Dentistry as Art. Smiles as Identity. Every smile is personal, it reflects character, confidence, and identity.</p>
+        <h1>Dentistry as Art.<br>Smiles as Identity.</h1>
+        <p>Every smile is personal, it reflects character, confidence and identity.</p>
         <div class="actions"><a class="button button-gold" href="#contact">Book Now</a><a class="button button-ghost" href="#services">View Services</a></div>
         <a class="scroll-cue" href="#about" aria-label="Scroll to about">↓</a>
       </div>
@@ -51,9 +50,8 @@
         <div class="home-about-portrait"><img src="assets/home-about-mask.png" alt="Al Manal dental professional" width="545" height="676"></div>
       </div>
       <div class="about-content">
-        <span class="eyebrow">Who We Are</span><h2>About Us</h2>
+        <span class="eyebrow">About Us</span><h2>“Dentistry as Art. Smiles as Identity”</h2>
         <div class="about-story-text">
-          <p class="brand-line">Dentistry as Art. Smiles as Identity.</p>
           <p>Al Manal Dental Centre is where science becomes art and care becomes creation. We believe that every smile is a form of expression, a reflection of personality, emotion, and inner confidence.</p>
           <p>At Al Manal, we do not produce standard results. We compose, interpret, and reveal smiles that feel authentic, natural, and deeply human.</p>
           <p>Our clinic is not just a medical space. It is a living gallery, where light, design, technology, and human connection come together to transform health into beauty and treatment into experience.</p>
@@ -77,19 +75,20 @@
     <section class="section home-values" id="our-values">
       <div class="center-heading"><h2>Our Values</h2></div>
       <div class="home-values-grid">
-        <article><h3>Leonardo da Vinci <b>→ Mastery</b></h3><em>Value: Mastery</em><p>Leonardo believed knowledge and beauty must evolve together.</p></article>
-        <article><h3>Claude Monet <b>→ Attentiveness</b></h3><em>Value: Attentiveness</em><p>Monet taught the world to notice light, nuance, and subtle emotion.</p></article>
-        <article><h3>Johannes Vermeer <b>→ Connection</b></h3><em>Value: Connection</em><p>Vermeer captured quiet moments of human closeness. Connection is how trust is created.</p></article>
-        <article><h3>Rembrandt <b>→ Respect</b></h3><em>Value: Respect</em><p>Rembrandt revealed dignity in every face, every age, every story.</p></article>
-        <article><h3>Vincent Van Gogh <b>→ Care</b></h3><em>Value: Care</em><p>Van Gogh painted emotion, vulnerability, and humanity.</p></article>
-        <article><h3>Salvador Dalí <b>→ Creativity</b></h3><em>Value: Creativity</em><p>Dalí imagined realities beyond what existed.</p></article>
-        <article><h3>Pablo Picasso <b>→ Authenticity</b></h3><em>Value: Authenticity</em><p>Picasso expressed his unique vision with the courage to be himself.</p></article>
+        <article style="--value-image:url('assets/value-leonardo.jpg')"><h3>Leonardo da Vinci</h3><em>Value: Mastery</em><p>Leonardo believed knowledge and beauty must evolve together.</p></article>
+        <article style="--value-image:url('assets/value-monet.jpg')"><h3>Claude Monet</h3><em>Value: Attentiveness</em><p>Monet taught the world to notice light, nuance, and subtle emotion.</p></article>
+        <article style="--value-image:url('assets/value-vermeer.jpg')"><h3>Johannes Vermeer</h3><em>Value: Connection</em><p>Vermeer captured quiet moments of human closeness. Connection is how trust is created.</p></article>
+        <article style="--value-image:url('assets/value-rembrandt.jpg')"><h3>Rembrandt</h3><em>Value: Respect</em><p>Rembrandt revealed dignity in every face, every age, every story.</p></article>
+        <article style="--value-image:url('assets/value-van-gogh.jpg')"><h3>Vincent Van Gogh</h3><em>Value: Care</em><p>Van Gogh painted emotion, vulnerability, and humanity.</p></article>
+        <article style="--value-image:url('assets/value-dali.jpg')"><h3>Salvador Dalí</h3><em>Value: Creativity</em><p>Dalí imagined realities beyond what existed.</p></article>
+        <article style="--value-image:url('assets/value-picasso.jpg')"><h3>Pablo Picasso</h3><em>Value: Authenticity</em><p>Picasso expressed his unique vision with the courage to be himself.</p></article>
       </div>
     </section>
 
     <section class="section treatments" id="services">
-      <div class="center-heading"><span class="eyebrow">Our Services</span><h2>Our Treatments</h2><p>A full spectrum of refined dental services, each delivered with precision, artistry, and care.</p></div>
+      <div class="center-heading"><span class="eyebrow">Our Treatments</span><h2>Our Treatments</h2><p>A full spectrum of refined dental services, each delivered with precision, artistry, and care.</p></div>
       <div class="treatment-grid" id="treatment-grid"></div>
+      <div class="treatment-categories" aria-label="Treatment categories"></div>
     </section>
 
     <section class="section team" id="team">
@@ -105,13 +104,13 @@
     <section class="section home-experience">
       <div class="home-experience-panel">
         <div class="home-experience-image"><img src="assets/home-experience.png" alt="Dental professional in a treatment room" loading="lazy"></div>
-        <div class="experience-copy"><span class="eyebrow">Patient Experience</span><h2>A Life-Changing<br>Experience</h2><p>We understand that visiting a dental clinic can feel overwhelming. That is why we have shaped the Al Manal experience around reassurance, clarity, and human connection. From your first consultation to the completion of treatment, we want you to feel informed, respected, and supported.</p><div class="experience-list"><article><i><img src="assets/home-experience-0.svg" width="20" height="20" alt=""></i><div><b>Comfort &amp; Trust</b><span>Our approach is calm and attentive, we listen and explain clearly.</span></div></article><article><i><img src="assets/home-experience-1.svg" width="20" height="20" alt=""></i><div><b>Personalised Care Plans</b><span>Care plans that reflect your needs, priorities, and comfort.</span></div></article><article><i><img src="assets/home-experience-2.svg" width="20" height="20" alt=""></i><div><b>Lasting Oral Health</b><span>Quality care begins with genuine understanding and communication.</span></div></article></div></div>
+        <div class="experience-copy"><span class="eyebrow">Patient Experience</span><h2>A Life-Changing<br>Experience</h2><p>We understand that visiting a dental clinic can feel overwhelming. That is why we have shaped the Al Manal experience around reassurance, clarity, and human connection. From your first consultation to the completion of treatment, we want you to feel informed, respected, and supported.</p><div class="experience-list"><article><i><img src="assets/home-experience-0.svg" width="20" height="20" alt=""></i><div><b>Comfort &amp; Trust</b><span>Our approach is calm and attentive, we listen and explain clearly.</span></div></article><article><i><img src="assets/home-experience-1.svg" width="20" height="20" alt=""></i><div><b>Personalised Care Plans</b><span>Care plans that reflect your needs, priorities, and comfort.</span></div></article><article><i><img src="assets/home-experience-2.svg" width="20" height="20" alt=""></i><div><b>Lasting Oral Health</b><span>Quality care begins with genuine understanding and communication.</span></div></article></div><a class="google-reviews-link" href="https://www.google.com/search?q=al+manal+dental#lrd=0x3e5e667b80c87a23:0x2dc9ceb2c87fe89b,1,,,," target="_blank" rel="noopener noreferrer">See current reviews on Google ↗</a></div>
       </div>
     </section>
 
     <section class="home-appointment" id="contact">
       <div class="home-appointment-panel">
-        <div class="appointment-intro"><div class="home-book-icon"><img src="assets/home-appointment-0.svg" width="26" height="26" alt=""></div><h2>Book Your<br>Appointment</h2><p>Experience exceptional dental care with our expert team. Schedule your visit today and take the first step toward a healthier, brighter smile.</p><div class="home-stats"><span><img src="assets/home-appointment-1.svg" width="22" height="22" alt="">17+ Years Experience</span><span><img src="assets/home-appointment-2.svg" width="22" height="22" alt="">5,000+ Smiles</span><span><img src="assets/home-appointment-3.svg" width="22" height="22" alt="">Certified Specialists</span></div></div>
+        <div class="appointment-intro"><div class="home-book-icon"><img src="assets/home-appointment-0.svg" width="26" height="26" alt=""></div><h2>Book Your<br>Appointment</h2><p>Experience exceptional dental care with our expert team. Schedule your visit today and take the first step toward a healthier, brighter smile.</p><div class="home-stats"><span><img src="assets/home-appointment-1.svg" width="22" height="22" alt="">17+ Years Experience</span><span><img src="assets/home-appointment-2.svg" width="22" height="22" alt="">500,000+ Smiles</span><span><img src="assets/home-appointment-3.svg" width="22" height="22" alt="">Certified Specialists</span></div></div>
         <form class="appointment-form"><label>Full Name *<input required name="name" autocomplete="name" placeholder="Your full name"></label><div class="field-row"><label>Phone *<input required name="phone" autocomplete="tel" type="tel" placeholder="+971 ..."></label><label>Email *<input required name="email" autocomplete="email" type="email" placeholder="you@email.com"></label></div><div class="field-row service-doctor-fields"><label>Service *<select required name="service" id="appointment-service"><option value="">Select a service</option><option>Smile Design</option><option>Veneers</option><option>Root Canal Treatment</option><option>Dental Crowns</option><option>Dental Implants</option><option>Orthodontics</option></select></label><label>Doctor *<select required name="doctor" id="appointment-doctor" disabled><option value="">Select a service first</option></select></label></div><div class="field-row"><label>Preferred Date *<input required name="date" type="date"></label><label>Preferred Time<input name="time" type="time"></label></div><label>Notes *<textarea required name="notes" placeholder="Enter Notes"></textarea></label><button class="button button-primary" type="submit">Book an appointment</button><small>By booking you agree to our terms. We respect your privacy.</small></form>
       </div>
     </section>

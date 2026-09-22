@@ -48,10 +48,10 @@ document.querySelectorAll('body > footer:not(.resource-footer)').forEach(footer 
     </div>`;
 });
 const aboutValues = [
-  ['artistic', 'Poetic but clear', 'We speak with emotion and meaning, never cold or clinical.'],
-  ['personal-care', 'Refined and human', 'Luxury without arrogance. Elegance without distance.'],
-  ['calm', 'Confident and calm', 'Authority that reassures, not intimidates.'],
-  ['excellence', 'Inspirational, not promotional', 'We tell stories, not slogans.']
+  ['personal-care', 'Personalized Care', 'Every patient is treated as a portrait, not a case, understood before they are treated.'],
+  ['artistic', 'Artistic Sensitivity', 'We see each smile as a composition, where clinical precision meets an artist’s instinct for what feels real.'],
+  ['calm', 'Calm Environment', 'Our clinic is a living gallery, where light, design, and quiet reassurance replace the fear people expect from a dental visit.'],
+  ['technology', 'Modern Technology', 'Refined instruments and digital precision, used not to standardize smiles, but to reveal the one that is truly yours.']
 ];
 const valuesGrid = document.querySelector('#values');
 if (valuesGrid) {
@@ -75,6 +75,18 @@ document.querySelectorAll('[data-treatment]').forEach(link => link.addEventListe
   }
 }));
 if (treatmentGrid) treatmentGrid.innerHTML = treatments.map(t => `<article><img src="assets/${t[0]}" alt="${t[1]}"><div><h3>${t[1]}</h3><p>${t[2]}</p><a href="#contact">Learn More ${figmaIcon('arrow', 17)}</a></div></article>`).join('');
+
+const treatmentCategories = [
+  ['Our Relief & Urgent Care Services', ['Urgent examination and pain management.', 'Toothache / infection treatment', 'Extractions (simple / surgical)', 'Gum pain / abscess management', 'Gentle endodontic care']],
+  ['Paediatric Dentistry', ['Gentle Dental Care for Kids', 'Fluoride Treatments', 'Dental Sealants', 'Early Orthodontic Evaluation', 'Oral Hygiene Education']],
+  ['Our Protect & Restore Services', ['Fillings & restorations', 'Crowns / bridges', 'Dental Implants', 'Full-Mouth Rehabilitation', 'Dentures', 'Deep cleaning / gum treatment']],
+  ['Smile Aesthetics', ['Dental Crowns & Bridges', 'Veneers & Hollywood Smile', 'Teeth Whitening', 'Smile Design', 'Invisalign, Sparks & Smarter Aligners', 'Metal & Ceramic Braces', 'Orthodontic Check-ups', 'Tooth-Coloured Fillings', 'Composite Bonding', 'Retainers & Smile Maintenance']],
+  ['Paediatric Dentistry', ['Oral Hygiene Education', 'Early Orthodontic Evaluation', 'Dental Sealants', 'Fluoride Treatments', 'Gentle Dental Care for Kids']],
+  ['Orthodontist', ['Paediatric Orthodontics', 'Full Spectrum of Orthodontic Treatment Modalities', 'Management of Malocclusions', 'Advanced Biomechanics & TADs']]
+];
+document.querySelectorAll('.treatment-categories').forEach(container => {
+  container.innerHTML = treatmentCategories.map(([title, items]) => `<section class="treatment-category"><h3>${title}</h3><ul>${items.map(item => `<li>${item}</li>`).join('')}</ul></section>`).join('');
+});
 
 const doctors = [['doctor-1.png','Dr. Talaat Al-Qadi'],['doctor-2.png','Dr. Ghaeth Helal'],['doctor-3.png','Dr. May Abdelraouf'],['doctor-4.png','Dr. Manal Dandan']];
 const teamGrid = document.querySelector('#team-grid');
