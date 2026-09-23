@@ -266,13 +266,13 @@ input,select,textarea{max-width:100%;min-width:0}
 }
 
 /* Patient Guide insurance partners: a continuous, responsive logo rail. */
-.patient-guide-page .insurance-logos{display:block;max-width:1180px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
-.patient-guide-page .insurance-track{display:flex;width:max-content;gap:18px;animation:insurance-scroll 26s linear infinite}
-.patient-guide-page .insurance-track span{display:grid;place-items:center;flex:0 0 170px;min-width:170px}
-.patient-guide-page .insurance-logos:hover .insurance-track{animation-play-state:paused}
+:is(.patient-guide-page,.homepage) .insurance-logos{display:block;max-width:1180px;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+:is(.patient-guide-page,.homepage) .insurance-track{display:flex;width:max-content;gap:18px;animation:insurance-scroll 26s linear infinite}
+:is(.patient-guide-page,.homepage) .insurance-track span{display:grid;place-items:center;flex:0 0 170px;min-width:170px}
+:is(.patient-guide-page,.homepage) .insurance-logos:hover .insurance-track{animation-play-state:paused}
 @keyframes insurance-scroll{to{transform:translateX(calc(-50% - 9px))}}
-@media(max-width:600px){.patient-guide-page .insurance-track{gap:12px;animation-duration:20s}.patient-guide-page .insurance-track span{flex-basis:145px;min-width:145px}.patient-guide-page .insurance-logos{display:block;overflow:hidden}}
-@media(prefers-reduced-motion:reduce){.patient-guide-page .insurance-logos{mask-image:none;-webkit-mask-image:none;overflow-x:auto}.patient-guide-page .insurance-track{animation:none}.patient-guide-page .insurance-track [aria-hidden="true"]{display:none}}
+@media(max-width:600px){:is(.patient-guide-page,.homepage) .insurance-track{gap:12px;animation-duration:20s}:is(.patient-guide-page,.homepage) .insurance-track span{flex-basis:145px;min-width:145px}:is(.patient-guide-page,.homepage) .insurance-logos{display:block;overflow:hidden}}
+@media(prefers-reduced-motion:reduce){:is(.patient-guide-page,.homepage) .insurance-logos{mask-image:none;-webkit-mask-image:none;overflow-x:auto}:is(.patient-guide-page,.homepage) .insurance-track{animation:none}:is(.patient-guide-page,.homepage) .insurance-track [aria-hidden="true"]{display:none}}
 html,body{overflow-x:hidden}
 
 /* Forms keep a stable border when clicked or focused throughout the site. */
@@ -439,3 +439,6 @@ form :is(input,select,textarea):focus-visible{border-color:#dee5ed!important}
   .resource-page .gallery-section img{height:300px}
   .resource-page .policy-content h2{font-size:27px}
 }
+/* Keep the shared insurer rail visible on both Home and Patient Guide. */
+.resource-page.patient-guide-page .insurance-logos{display:block;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+@media(prefers-reduced-motion:reduce){.resource-page.patient-guide-page .insurance-logos{overflow-x:auto;mask-image:none;-webkit-mask-image:none}}
