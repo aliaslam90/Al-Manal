@@ -40,15 +40,15 @@
 .about-commitment { z-index:3; }
 :is(.about-page,.services-view,.doctors-view,.contact-view,.packages-page) .page-hero>div:after { z-index:0; background-image:url('assets/home-watermark.png'); filter:brightness(0) invert(1); }
 :is(.about-page,.services-view,.doctors-view,.contact-view,.packages-page) .page-hero .eyebrow,:is(.about-page,.services-view,.doctors-view,.contact-view,.packages-page) .page-hero h1 { position:relative; z-index:1; }
-.about-voice-values { width:100%; max-width:none; padding:64px max(40px,calc((100% - 1360px)/2)); margin:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.about-voice-values { width:100%; max-width:none; padding:64px max(40px,calc((100% - 1360px)/2)); margin:0; display:grid; grid-template-columns:1fr; gap:32px; }
 .about-purpose { width:100%; padding:44px max(40px,calc((100% - 1360px)/2)) 20px; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
 .about-purpose article { padding:36px 40px; border:1px solid #ebecff; border-radius:28px; background:#fbfbff; }
 .about-purpose h2 { margin:0 0 18px; font-size:38px; line-height:1.1; color:#19093e; }
 .about-purpose p { margin:0 0 14px; font-size:17px; line-height:1.65; }
 .about-purpose p:last-child { margin-bottom:0; }
 .about-voice,.about-core { padding:40px; border-radius:32px; border:1px solid #ebecff; min-width:0; }
-.about-voice { background:#fbf8ef; border-color:#f3eacc; }
-.about-core { box-shadow:0 8px 17px #dee5ed; }
+.about-voice { max-width:100%; background:#fbf8ef; border-color:#f3eacc; }
+.about-core { background:#fff; box-shadow:0 16px 48px #0e17920a; }
 .about-voice-values h2 { margin:0 0 24px; font:600 16px/20px Inter,sans-serif; text-transform:uppercase; letter-spacing:.7px; color:black; display:flex; align-items:center; gap:16px; }
 .about-voice-values i { display:grid; place-items:center; width:48px; height:48px; flex-shrink:0; border-radius:12px; background:white; }
 .about-voice blockquote { font:700 30px/36px 'Cormorant Garamond',serif; color:black; margin:0 0 24px; }
@@ -60,13 +60,18 @@
 .about-core-grid>div { min-height:208px; background:#f9fafb; border-radius:16px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; }
 .about-core-grid i { border-radius:50%; box-shadow:0 1px 1px #0000000d; }
 .about-core-grid h3 { font-size:20px; line-height:24px; color:black; margin:0; }
-.about-values-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
-.about-values-list>div { position:relative; min-height:180px; padding:22px; border-radius:16px; background:#f9fafb; overflow:hidden; }
-.about-values-list>div:after { content:""; position:absolute; z-index:0; top:0; right:0; width:52%; height:100%; background:var(--value-image) center/cover no-repeat; mask-image:linear-gradient(90deg,transparent,#000 35%); -webkit-mask-image:linear-gradient(90deg,transparent,#000 35%); }
-.about-values-list :is(h3,em,p) { position:relative; z-index:1; }
-.about-values-list h3 { margin:0 0 8px; font-size:20px; line-height:1.3; color:#19093e; }
-.about-values-list em { display:inline-flex; margin-bottom:8px; padding:5px 9px; border-radius:999px; background:rgba(14,23,146,.07); color:#0e1792; font-size:13px; font-weight:700; }
-.about-values-list p { max-width:65%; margin:0; font-size:14px; line-height:1.55; }
+.about-values-heading { margin-bottom:28px; }
+.about-values-heading .eyebrow { display:inline-flex; margin-bottom:10px; color:#9d8129; }
+.about-voice-values .about-values-heading h2 { display:block; margin:0; color:#19093e; font:700 clamp(36px,4vw,52px)/1.08 'Cormorant Garamond',serif; letter-spacing:0; text-transform:none; }
+.about-values-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; }
+.about-values-list article { display:grid; grid-template-columns:42% minmax(0,1fr); min-width:0; min-height:236px; overflow:hidden; border:1px solid #e7e9f3; border-radius:22px; background:#fff; box-shadow:0 8px 24px #10196009; transition:transform .2s ease,box-shadow .2s ease; }
+.about-values-list article:hover { transform:translateY(-3px); box-shadow:0 14px 30px #10196014; }
+.about-values-list article:last-child { grid-column:1/-1; grid-template-columns:28% minmax(0,1fr); }
+.about-values-list img { width:100%; height:100%; min-height:236px; object-fit:cover; display:block; }
+.about-value-copy { align-self:center; min-width:0; padding:24px clamp(20px,2.4vw,34px); }
+.about-values-list h3 { margin:0 0 12px; color:#19093e; font:700 clamp(25px,2.2vw,32px)/1.05 'Cormorant Garamond',serif; }
+.about-values-list .about-value-copy span { display:inline-block; margin-bottom:14px; padding:6px 11px; border-radius:999px; background:#eff0ff; color:#0e1792; font:700 12px/1.25 Inter,sans-serif; }
+.about-values-list p { max-width:42ch; margin:0; color:#333447; font-size:14px; line-height:1.6; }
 @media(max-width:1250px) { .about-page .about-story { gap:40px; } .about-page .metrics-grid article { padding:24px; } .about-page .metrics-grid b { font-size:40px; } .about-voice,.about-core { padding:28px; } }
 @media(max-width:1080px) {
  .about-page .about-story { grid-template-columns:1fr; padding:64px 28px 40px; gap:64px; }
@@ -76,6 +81,7 @@
  .about-purpose { grid-template-columns:1fr; padding:40px 28px 16px; }
  .about-metrics { padding:0 28px 24px; }
  .about-voice-values { grid-template-columns:1fr; padding:40px 28px 64px; }
+ .about-values-list article,.about-values-list article:last-child { grid-template-columns:38% minmax(0,1fr); }
  :is(.about-page,.services-view,.doctors-view,.contact-view,.packages-page) .page-hero { width:100%; }
 }
 @media(max-width:600px) {
@@ -111,5 +117,10 @@
  .about-voice blockquote { font-size:28px; line-height:34px; }
  .about-core-grid { grid-template-columns:1fr; gap:12px; }
  .about-core-grid>div { min-height:130px; }
- .about-values-list { grid-template-columns:1fr; }
+ .about-values-list { grid-template-columns:1fr; gap:16px; }
+ .about-values-list article,.about-values-list article:last-child { grid-column:auto; grid-template-columns:1fr; }
+ .about-values-list img { height:190px; min-height:0; }
+ .about-value-copy { padding:22px; }
+ .about-values-list article { min-height:0; }
 }
+@media(prefers-reduced-motion:reduce) { .about-values-list article { transition:none; } .about-values-list article:hover { transform:none; } }
