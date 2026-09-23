@@ -73,6 +73,10 @@
 .about-values-list .about-value-copy span { display:inline-block; margin-bottom:14px; padding:6px 11px; border-radius:999px; background:#eff0ff; color:#0e1792; font:700 12px/1.25 Inter,sans-serif; }
 .about-values-list p { max-width:42ch; margin:0; color:#333447; font-size:14px; line-height:1.6; }
 @media(max-width:1250px) { .about-page .about-story { gap:40px; } .about-page .metrics-grid article { padding:24px; } .about-page .metrics-grid b { font-size:40px; } .about-voice,.about-core { padding:28px; } }
+@media(max-width:900px) {
+ .about-values-list { grid-template-columns:1fr; }
+ .about-values-list article,.about-values-list article:last-child { grid-column:auto; grid-template-columns:34% minmax(0,1fr); }
+}
 @media(max-width:1080px) {
  .about-page .about-story { grid-template-columns:1fr; padding:64px 28px 40px; gap:64px; }
  .about-page .about-story-art { max-width:640px; width:100%; margin:auto; }
@@ -81,7 +85,6 @@
  .about-purpose { grid-template-columns:1fr; padding:40px 28px 16px; }
  .about-metrics { padding:0 28px 24px; }
  .about-voice-values { grid-template-columns:1fr; padding:40px 28px 64px; }
- .about-values-list article,.about-values-list article:last-child { grid-template-columns:38% minmax(0,1fr); }
  :is(.about-page,.services-view,.doctors-view,.contact-view,.packages-page) .page-hero { width:100%; }
 }
 @media(max-width:600px) {

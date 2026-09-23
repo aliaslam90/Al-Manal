@@ -439,6 +439,10 @@ form :is(input,select,textarea):focus-visible{border-color:#dee5ed!important}
   .resource-page .gallery-section img{height:300px}
   .resource-page .policy-content h2{font-size:27px}
 }
+@media(max-width:600px){
+  .resource-page .category-section>div{margin-right:0;padding:2px 0 8px;flex-wrap:wrap;justify-content:center;overflow:visible;scroll-snap-type:none}
+  .resource-page .category-section button{flex:1 1 calc(50% - 10px);max-width:100%;white-space:normal}
+}
 /* Keep the shared insurer rail visible on both Home and Patient Guide. */
 .resource-page.patient-guide-page .insurance-logos{display:block;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
 @media(prefers-reduced-motion:reduce){.resource-page.patient-guide-page .insurance-logos{overflow-x:auto;mask-image:none;-webkit-mask-image:none}}
