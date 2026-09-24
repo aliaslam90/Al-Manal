@@ -275,6 +275,15 @@ document.querySelectorAll('.nav a').forEach(link => {
 });
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+document.querySelectorAll('.insurance-track').forEach(track => {
+  [...track.children].forEach(logo => {
+    const duplicate = logo.cloneNode(true);
+    duplicate.setAttribute('aria-hidden', 'true');
+    duplicate.querySelector('img')?.setAttribute('alt', '');
+    track.appendChild(duplicate);
+  });
+  track.classList.add('is-ready');
+});
 const heroVideo = document.querySelector('.hero-video');
 const syncMotionPreference = event => {
   if (!heroVideo) return;
