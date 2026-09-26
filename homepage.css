@@ -112,6 +112,9 @@
 .homepage .home-team-grid .home-doctor-photo img { position:absolute; bottom:0; left:0; width:100%; height:auto; aspect-ratio:317/299; object-fit:cover; object-position:center; border-radius:0; }
 .homepage .home-team-grid h3 { font-size:24px; line-height:28px; font-weight:600; color:#030303; margin:24px 0 6px; }
 .homepage .home-team-grid p { font-size:18px; line-height:27px; color:#000; margin:0; }
+.homepage .home-team-grid .home-doctor-placeholder { background:#fff; border-color:#e8eaf4; }
+.homepage .home-team-grid .home-doctor-placeholder img { height:100%; aspect-ratio:auto; object-fit:contain; padding:30px; }
+.homepage .home-team-grid { row-gap:110px; }
 
 /* Patient experience: single rounded panel, equal image/content columns. */
 .home-experience-panel { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); background:var(--brand-primary); border-radius:40px; overflow:hidden; }
