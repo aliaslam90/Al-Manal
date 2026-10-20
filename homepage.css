@@ -262,3 +262,12 @@
   .homepage .footer-bottom { padding:0; font-size:12px; }
 }
 @media(prefers-reduced-motion:reduce) { .home-concept-grid article>img { transition:none; } }
+
+/* Keep faces in frame instead of cropping the video around its centre. */
+.homepage .hero-video-bg { object-position:center top; }
+@media(max-width:1080px) {
+  .homepage .hero.hero-video-section { height:auto; min-height:0; padding-top:calc(56.25vw + 32px); }
+  .homepage .hero-video-bg { height:auto; aspect-ratio:16 / 9; object-fit:contain; object-position:center top; }
+  .homepage .hero-shade { background:linear-gradient(0deg,#090f35 0%,transparent 45%); }
+  .homepage .hero.hero-video-section .hero-copy { margin-bottom:36px; }
+}
