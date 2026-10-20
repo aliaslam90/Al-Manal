@@ -70,7 +70,7 @@
 .about-values-list img { width:100%; height:100%; min-height:236px; object-fit:cover; display:block; }
 .about-value-copy { align-self:center; min-width:0; padding:24px clamp(20px,2.4vw,34px); }
 .about-values-list h3 { margin:0 0 12px; color:#19093e; font:700 clamp(25px,2.2vw,32px)/1.05 'Cormorant Garamond',serif; }
-.about-values-list .about-value-copy span { display:inline-block; margin-bottom:14px; padding:6px 11px; border-radius:999px; background:#eff0ff; color:#0e1792; font:700 12px/1.25 Inter,sans-serif; }
+.about-values-list .about-value-copy .value-artist { display:block; margin-bottom:14px; color:#0e1792; font:600 14px/1.4 Inter,sans-serif; }
 .about-values-list p { max-width:42ch; margin:0; color:#333447; font-size:14px; line-height:1.6; }
 @media(max-width:1250px) { .about-page .about-story { gap:40px; } .about-page .metrics-grid article { padding:24px; } .about-page .metrics-grid b { font-size:40px; } .about-voice,.about-core { padding:28px; } }
 @media(max-width:900px) {

@@ -81,7 +81,6 @@ const treatmentCategories = [
   ['Paediatric Dentistry', ['Gentle Dental Care for Kids', 'Fluoride Treatments', 'Dental Sealants', 'Early Orthodontic Evaluation', 'Oral Hygiene Education']],
   ['Our Protect & Restore Services', ['Fillings & restorations', 'Crowns / bridges', 'Dental Implants', 'Full-Mouth Rehabilitation', 'Dentures', 'Deep cleaning / gum treatment']],
   ['Smile Aesthetics', ['Dental Crowns & Bridges', 'Veneers & Hollywood Smile', 'Teeth Whitening', 'Smile Design', 'Invisalign, Sparks & Smarter Aligners', 'Metal & Ceramic Braces', 'Orthodontic Check-ups', 'Tooth-Coloured Fillings', 'Composite Bonding', 'Retainers & Smile Maintenance']],
-  ['Paediatric Dentistry', ['Oral Hygiene Education', 'Early Orthodontic Evaluation', 'Dental Sealants', 'Fluoride Treatments', 'Gentle Dental Care for Kids']],
   ['Orthodontist', ['Paediatric Orthodontics', 'Full Spectrum of Orthodontic Treatment Modalities', 'Management of Malocclusions', 'Advanced Biomechanics & TADs']]
 ];
 document.querySelectorAll('.treatment-categories').forEach(container => {
@@ -93,8 +92,8 @@ const teamGrid = document.querySelector('#team-grid');
 if (teamGrid) teamGrid.innerHTML = doctors.map(d => `<article><img src="assets/${d[0]}" alt="${d[1]}"><h3>${d[1]}</h3></article>`).join('');
 
 const doctorProfiles = {
-  ihssan:{name:'Dr. Ihssan Tayseer',role:'',summary:'Please contact the clinic for profile details and appointment availability.',image:null,experience:[],education:[],expertise:[]},
-  claude:{name:'Dr. Claude Istanbouli',role:'',summary:'Please contact the clinic for profile details and appointment availability.',image:null,experience:[],education:[],expertise:[]},
+  ihssan:{name:'Dr. Ihssan Tayseer',role:'G.P. Dentist',summary:'Please contact the clinic for profile details and appointment availability.',image:null,experience:[],education:[],expertise:[]},
+  claude:{name:'Dr. Claude Istanbouli',role:'G.P. Dentist with Implant Privilege',summary:'Please contact the clinic for profile details and appointment availability.',image:null,experience:[],education:[],expertise:[]},
   talaat:{name:'Dr. Talaat Al Qadi',role:'General Dentist',summary:'Dr. Talaat Al Qadi is a General Dentist with 31 years of experience across the UAE, Saudi Arabia, and Syria. He has extensive experience across general and restorative dental treatments.',image:null,experience:['31 years of clinical experience','Registered in the UAE, Saudi Arabia, and Syria'],education:[['Bachelor in Dentistry','Aleppo University']],expertise:['Tooth extractions','Crowns and fillings','Root canal treatments','General dental care']},
   ghaeth:{name:'Dr. Gaith Helal',role:'General Dentist',summary:'Dr. Gaith Helal is a General Dentist with five years of experience in Syria and the UAE, with experience across cosmetic, restorative, and general dental care.',image:null,experience:['5 years of clinical experience','Experience in Syria and the UAE'],education:[['Bachelor of Dental Surgery','Damascus University']],expertise:['Cosmetic dentistry','Fillings','Crowns and bridges','General dental care']},
   may:{name:'Dr. Mai Abdelraouf',role:'General Dentist',summary:'Dr. Mai Abdelraouf is a General Dentist with 20 years of experience in the UAE. She holds a Master’s degree in Dental Laser and has extensive experience across general, restorative, and cosmetic dental treatments.',image:null,experience:['20 years of clinical experience in the UAE','Advanced training in dental laser treatment'],education:[['Bachelor of Dental Surgery','Misr University for Science and Technology'],['Master’s Degree in Dental Laser','RWTH Aachen University, Germany']],expertise:['Tooth extractions','Crowns and fillings','Root canal treatments','Cosmetic dental procedures']},
