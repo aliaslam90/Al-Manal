@@ -448,3 +448,23 @@ form :is(input,select,textarea):focus-visible{border-color:#dee5ed!important}
 :is(.homepage,.resource-page.patient-guide-page) .insurance-logo img[src$="insurance-saico.png"]{transform:scale(2.15)}
 @media(max-width:600px){:is(.homepage,.resource-page.patient-guide-page) .insurance-logos{margin-top:30px}:is(.homepage,.resource-page.patient-guide-page) .insurance-track{--insurance-gap:12px}:is(.homepage,.resource-page.patient-guide-page) .insurance-logo{flex-basis:164px;width:164px;height:94px;padding:12px}:is(.homepage,.resource-page.patient-guide-page) .insurance-logo img{width:138px;height:62px}}
 @media(prefers-reduced-motion:reduce){:is(.homepage,.resource-page.patient-guide-page) .insurance-logos{overflow-x:auto;mask-image:none;-webkit-mask-image:none}:is(.homepage,.resource-page.patient-guide-page) .insurance-track.is-ready{animation:none}:is(.homepage,.resource-page.patient-guide-page) .insurance-logo[aria-hidden="true"]{display:none}}
+
+/* Consistent form spacing and inset dropdown indicators across all pages. */
+body form select:not([multiple]):not([size]) {
+  -webkit-appearance:none;
+  appearance:none;
+  padding-inline:16px 48px;
+  background-image:url('assets/form-chevron.svg');
+  background-repeat:no-repeat;
+  background-position:right 16px center;
+  background-size:16px 16px;
+}
+body form select:not([multiple]):not([size]):disabled {
+  background-image:url('assets/form-chevron.svg');
+  background-repeat:no-repeat;
+  background-position:right 16px center;
+  background-size:16px 16px;
+}
+@media(forced-colors:active) {
+  body form select:not([multiple]):not([size]) { appearance:auto; background-image:none; }
+}
