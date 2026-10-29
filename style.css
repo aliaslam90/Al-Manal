@@ -474,3 +474,6 @@ body form select:not([multiple]):not([size]):disabled {
 .booking-status.success { color:#17623a; }
 .booking-status.error { color:#a61b26; }
 .appointment-form [aria-invalid="true"] { border-color:#a61b26; }
+
+/* Keep the booking spam trap hidden despite the styled input display rules. */
+.appointment-form input[hidden] { display:none !important; }

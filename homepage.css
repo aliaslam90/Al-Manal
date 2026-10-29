@@ -54,14 +54,31 @@
 .homepage .values-grid h3 { font-size:20px; line-height:28px; font-weight:600; margin:12px 0 10px; color:var(--home-heading); }
 .homepage .values-grid p { margin:0; font-size:14px; line-height:23px; }
 
-/* Concept image mosaic: 670px lead card plus four 325px tiles. */
-.homepage .concept { background:#fff; position:relative; overflow:hidden; }
-.homepage .concept:before { content:""; position:absolute; top:230px; left:-94px; width:348px; height:486px; background:url('assets/home-watermark.png') center/cover no-repeat; opacity:.3; pointer-events:none; }
-.homepage .concept .section-heading { grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); gap:32px; position:relative; align-items:end; }
-.homepage .concept h2 { font-size:64px; line-height:64px; margin:20px 0 0; color:var(--brand-accent); }
-.homepage .concept .section-heading>p { min-width:0; max-width:100%; height:auto; overflow:visible; font-size:18px; line-height:1.625; margin:0 0 8px; white-space:normal; overflow-wrap:break-word; }
-.homepage .concept .section-heading { display:block; }
-.homepage .concept .section-heading>p { margin:20px 0 0; }
+/* A quiet editorial statement between About and Our Values. */
+.homepage .concept { max-width:none; background:#fff; position:relative; padding:64px max(40px,calc((100% - 1360px)/2)) 80px; }
+.homepage .concept:before { content:none; }
+.concept-panel { position:relative; isolation:isolate; overflow:hidden; padding:56px 40px; border:1px solid #eae3cf; border-radius:28px; background:#fbf8ef; text-align:center; }
+.concept-panel:after { content:""; position:absolute; z-index:-1; right:-18px; bottom:-105px; width:400px; height:454px; background:#b69a3f; -webkit-mask:url('assets/home-watermark.png') center/contain no-repeat; mask:url('assets/home-watermark.png') center/contain no-repeat; opacity:.13; pointer-events:none; transform:none; }
+.homepage .concept .concept-label { display:inline-flex; margin-bottom:28px; font-size:16px; line-height:24px; padding:6px 12px; box-shadow:0 0 0 3px #fff,0 4px 2px #8c96a940,0 8px 17px #8c96a91a; }
+.homepage .concept .concept-title { max-width:960px; margin:0 auto; color:var(--home-heading); font-size:clamp(40px,4.5vw,66px); line-height:1.02; letter-spacing:-.8px; font-weight:600; text-wrap:balance; }
+.concept-title>span,.concept-title em { display:block; }
+.concept-title em { margin-top:0; font-style:normal; font-weight:600; color:#a88c30; }
+.concept-intro { max-width:700px; margin:24px auto 0; padding:0; }
+.concept-intro p { margin:0; color:#55515c; font-size:17px; line-height:1.8; text-wrap:pretty; }
+@media(max-width:1000px) {
+  .homepage .concept { padding:40px 28px 56px; }
+  .concept-panel { padding:48px 32px; }
+}
+@media(max-width:650px) {
+  .homepage .concept { padding:24px 20px 40px; }
+  .concept-panel { padding:36px 22px; border-radius:22px; }
+  .concept-panel:after { width:230px; height:261px; right:-38px; bottom:-54px; opacity:.08; }
+  .homepage .concept .concept-label { margin-bottom:24px; font-size:14px; }
+  .homepage .concept .concept-title { font-size:38px; line-height:1.02; letter-spacing:-.4px; }
+  .concept-title em { margin-top:0; }
+  .concept-intro { margin-top:20px; }
+  .concept-intro p { font-size:15px; line-height:1.75; }
+}
 .home-concept-grid { position:relative; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); grid-template-rows:repeat(2,290px); gap:20px; margin-top:56px; }
 .home-concept-grid article { position:relative; border-radius:28px; overflow:hidden; border:1px solid #dee5ed; }
 .home-concept-grid .concept-mastery { grid-column:span 2; grid-row:span 2; }

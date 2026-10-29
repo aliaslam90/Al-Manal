@@ -146,6 +146,7 @@ document.querySelectorAll('.nav').forEach(nav => {
       <span>More</span><img class="more-chevron" src="assets/icons/chevron.svg" width="14" height="14" alt="" aria-hidden="true">
     </button>
     <div class="more-menu" role="menu">
+      <a href="contact.html" role="menuitem">Contact Us</a>
       <a href="patient-guide.html" role="menuitem">Patient Guide</a>
       <a href="careers.html" role="menuitem">Careers</a>
       <a href="faqs.html" role="menuitem">FAQs</a>
