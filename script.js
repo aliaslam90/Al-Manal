@@ -28,7 +28,6 @@ document.querySelectorAll('body > footer:not(.resource-footer)').forEach(footer 
           <a href="packages.html">Packages &amp; Offers</a>
           <a href="services.html">Treatments</a>
           <a href="doctors.html">Our Artists</a>
-          <a href="index.html#gallery">Gallery</a>
           <a href="contact.html">Contact Us</a>
         </div>
       </nav>
@@ -214,7 +213,7 @@ window.addEventListener('resize', () => {
   if (window.innerWidth > 1080) setMenuOpen(false);
 });
 
-document.querySelectorAll('form').forEach(form => form.addEventListener('submit', e => {
+document.querySelectorAll('form:not(.appointment-form)').forEach(form => form.addEventListener('submit', e => {
   e.preventDefault();
   const button = form.querySelector('button[type="submit"]');
   if (!button) return;
@@ -226,6 +225,77 @@ document.querySelectorAll('form').forEach(form => form.addEventListener('submit'
   }
   button.disabled = true;
 }));
+
+// Booking requests are acknowledged only after durable server storage.
+document.querySelectorAll('.appointment-form').forEach(form => {
+  const button = form.querySelector('button[type="submit"]');
+  const status = document.createElement('p');
+  status.className = 'booking-status';
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  form.append(status);
+  const trap = document.createElement('input');
+  trap.name = 'website'; trap.tabIndex = -1; trap.autocomplete = 'off'; trap.hidden = true;
+  form.append(trap);
+  const date = form.querySelector('[name="date"]');
+  const today = new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Dubai', year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+  date.min = today;
+  const time = form.querySelector('[name="time"]');
+  time.min = '10:00'; time.max = '22:00';
+  let requestId = null;
+  let submittedPayload = null;
+  let pending = false;
+  form.addEventListener('input', event => { event.target.removeAttribute('aria-invalid'); });
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (pending || !form.reportValidity()) return;
+    const data = Object.fromEntries(new FormData(form));
+    const payload = JSON.stringify(data);
+    if (payload !== submittedPayload) {
+      requestId = crypto.randomUUID();
+      submittedPayload = payload;
+    }
+    data.request_id = requestId;
+    pending = true;
+    button.disabled = true;
+    button.textContent = 'Sending request…';
+    status.textContent = '';
+    form.querySelectorAll('[aria-invalid]').forEach(field => field.removeAttribute('aria-invalid'));
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 20000);
+    try {
+      const response = await fetch('api/bookings.php', {
+        method:'POST', headers:{'Content-Type':'application/json'},
+        credentials:'same-origin', body:JSON.stringify(data), signal:controller.signal
+      });
+      const result = await response.json();
+      if (!response.ok) {
+        for (const name of Object.keys(result.errors || {})) {
+          const field = form.elements.namedItem(name);
+          if (field) field.setAttribute('aria-invalid', 'true');
+        }
+        throw new Error(Object.values(result.errors || {}).join(' ') || result.message || 'Unable to send your request.');
+      }
+      if (!result.reference) throw new Error('Unable to verify your request. Please try again.');
+      status.textContent = `Request ${result.reference} received. The clinic will contact you to confirm availability.`;
+      status.className = 'booking-status success';
+      form.reset();
+      form.querySelector('[name="service"]').dispatchEvent(new Event('change'));
+      requestId = null; submittedPayload = null;
+      button.textContent = 'Send another request';
+    } catch (error) {
+      status.className = 'booking-status error';
+      status.textContent = error.name === 'AbortError' || error instanceof TypeError || error instanceof SyntaxError
+        ? 'We could not verify receipt. Please try again, or call +971 2 556 9213. Your entries are still here.'
+        : error.message;
+      button.textContent = 'Try again';
+    } finally {
+      clearTimeout(timeout);
+      pending = false;
+      button.disabled = false;
+    }
+  });
+});
 
 document.querySelectorAll('.faq-question').forEach(button => button.addEventListener('click', () => {
   const item = button.closest('.faq-item');
@@ -339,8 +409,12 @@ const enquiryParams = new URLSearchParams(window.location.search);
 const enquiryType = enquiryParams.get('enquiry');
 if (enquiryType === 'packages') {
   const contactService = document.querySelector('#contact-form select[name="service"]');
-  if (contactService) contactService.value = 'Packages & Offers';
+  if (contactService) {
+    contactService.add(new Option('Packages & Offers', 'Packages & Offers'));
+    contactService.value = 'Packages & Offers';
+    contactService.dispatchEvent(new Event('change'));
+  }
   const packageName = enquiryParams.get('package');
-  const contactMessage = document.querySelector('#contact-form textarea[name="message"]');
+  const contactMessage = document.querySelector('#contact-form textarea[name="notes"]');
   if (packageName && contactMessage) contactMessage.value = `I am interested in the ${packageName} package.`;
 }

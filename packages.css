@@ -83,3 +83,8 @@
   .package-card h3 { font-size:27px; }
   .packages-gallery-grid img { height:275px; }
 }
+
+.payment-wordmark img { display:block; width:100%; max-width:150px; height:66px; object-fit:contain; }
+.payment-wordmark.homat img { height:78px; }
+.payment-wordmark.fazaa { background:#fff; }
+.homepage .packages-payments { padding-inline:max(20px,calc((100% - 1360px)/2)); }

@@ -48,3 +48,11 @@
 @media(max-width:1000px) { .contact-dashboard { padding:32px 28px 64px; grid-template-columns:1fr; } .contact-secondary { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); } .reach-card { grid-row:span 2; } .contact-social>div { display:grid; grid-template-columns:repeat(2,56px); } }
 @media(max-width:700px) { .contact-secondary { display:flex; } .contact-fields { grid-template-columns:1fr; } }
 @media(max-width:600px) { .contact-dashboard { padding:32px 20px 48px; } .contact-request,.contact-map-card,.reach-card,.hours-card,.payment-options,.contact-social { border-radius:24px; padding:24px; } .contact-request h2 { font-size:40px; line-height:42px; margin:12px 0 28px; } .contact-request textarea { height:150px; } .contact-map-card { height:260px; } .contact-map-card:after { inset:24px; } .contact-map-card>a { min-width:220px; } .contact-social { height:240px; } .contact-social>div { display:flex; gap:8px; } .contact-social a { width:52px; height:52px; } }
+
+/* The contact page uses the same appointment fields as the homepage. */
+.contact-request .appointment-form { display:flex; flex-direction:column; gap:20px; padding:0; border:0; box-shadow:none; }
+.contact-request .appointment-form .field-row { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+.contact-request .appointment-form label { min-width:0; }
+.contact-request .appointment-form select:disabled { background:#f7f7fa; color:#777; }
+.contact-request .appointment-form small { text-align:center; color:#777; }
+@media(max-width:600px) { .contact-request .appointment-form .field-row { grid-template-columns:1fr; } }

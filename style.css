@@ -468,3 +468,9 @@ body form select:not([multiple]):not([size]):disabled {
 @media(forced-colors:active) {
   body form select:not([multiple]):not([size]) { appearance:auto; background-image:none; }
 }
+
+.booking-status { margin:0; font-size:14px; line-height:1.6; overflow-wrap:anywhere; }
+.booking-status:empty { display:none; }
+.booking-status.success { color:#17623a; }
+.booking-status.error { color:#a61b26; }
+.appointment-form [aria-invalid="true"] { border-color:#a61b26; }
