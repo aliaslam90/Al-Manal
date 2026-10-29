@@ -56,3 +56,6 @@
 .contact-request .appointment-form select:disabled { background:#f7f7fa; color:#777; }
 .contact-request .appointment-form small { text-align:center; color:#777; }
 @media(max-width:600px) { .contact-request .appointment-form .field-row { grid-template-columns:1fr; } }
+
+.payment-options span { display:inline-flex; align-items:center; justify-content:center; }
+.payment-options span img { display:block; width:90px; height:30px; object-fit:contain; }
