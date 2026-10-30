@@ -88,3 +88,6 @@
 .payment-wordmark.homat img { height:78px; }
 .payment-wordmark.fazaa { background:#fff; }
 .homepage .packages-payments { padding-inline:max(20px,calc((100% - 1360px)/2)); }
+
+/* Compensate for the Tabby SVG's internal whitespace to match Tamara visually. */
+.packages-page .payment-wordmark.tabby img { width:120px; max-width:100%; height:66px; object-fit:cover; }
